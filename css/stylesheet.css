@@ -1,0 +1,29 @@
+body {
+	margin: 5.208333333333% 0%; 
+	padding: 0%;
+	text-align: center;
+	background: #F5F5F5;
+}
+
+h1 {
+	color: black;
+	font-size: 2em;
+}
+
+p {
+	color: grey;
+	font-size: 1em;
+}
+
+footer {
+	color: gray;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	font-size: 0.9em;
+}
+
+.logo {
+	width: 23.958333333333%; /* 230 / 960 */
+    height: auto;
+}
