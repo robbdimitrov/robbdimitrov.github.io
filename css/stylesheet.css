@@ -3,6 +3,7 @@ body {
 	padding: 0%;
 	text-align: center;
 	background: #F5F5F5;
+	font-family: fantasy;
 }
 
 h1 {
@@ -18,7 +19,7 @@ p {
 footer {
 	color: gray;
 	position: fixed;
-	bottom: 0;
+	bottom: 3.125%;
 	width: 100%;
 	font-size: 0.9em;
 }
