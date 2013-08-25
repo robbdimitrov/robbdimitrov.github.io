@@ -93,7 +93,7 @@ body {
 	}
 }
 
-@media (min-width: 400px) {
+@media (min-width: 360px) {
 	.social {
 		width: 340px;
 	}
