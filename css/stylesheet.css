@@ -1,6 +1,13 @@
 body {
 	background: #4F4FB6;
 	font-family: 'PT Sans', sans-serif;
+	overflow: hidden; 
+	height: 100%;
+}
+
+div.wrapper { 
+	overflow: auto; 
+	height: 100%; 
 }
 
 .title {
@@ -93,7 +100,13 @@ body {
 	}
 }
 
-@media (min-width: 360px) {
+@media (min-width: 960px) {
+	.title {
+		margin-top: 125px;
+	}
+}
+
+@media (min-width: 400px) {
 	.social {
 		width: 340px;
 	}
