@@ -11,7 +11,7 @@ div.wrapper {
 }
 
 .title {
-	font-size: 48px;
+	font-size: 3em;
 	font-weight:normal;
 	color: #F0F0F8;
 	line-height: 62px;
@@ -23,7 +23,7 @@ div.wrapper {
 }
 
 .tagline {
-	font-size: 25px;
+	font-size: 1.55em;
 	color: #F0F0F8;
 	line-height: 33px;
 	text-align:center;
@@ -54,38 +54,65 @@ div.wrapper {
 	margin: 11px;
     float:left;
     position:relative;
-}
-
-.social li a:hover {
-	opacity: 0.7;
+    background-image:url(../images/spritesheet.png);
+    background-size: 420px 120px;
+    background-repeat: no-repeat;
 }
 
 .twitter {
-	background-image:url(../images/twitter.png);
+	background-position:0px 0px;
+}
+
+.twitter:hover {
+	background-position: 0px -60px;
 }
 
 .github {
-	background-image:url(../images/github.png);
+	background-position: -180px 0px;
+}
+
+.github:hover {
+	background-position: -180px -60px;
 }
 
 .pinterest {
-	background-image:url(../images/pinterest.png);
+	background-position: -300px 0px;
+}
+
+.pinterest:hover {
+	background-position: -300px -60px;
 }
 
 .linkedin {
-	background-image:url(../images/linkedin.png);
+	background-position: -360px 0px;
+}
+
+.linkedin:hover {
+	background-position: -360px -60px;
 }
 
 .googleplus {
-	background-image:url(../images/googleplus.png);
+	background-position: -60px 0px;
+}
+
+.googleplus:hover {
+	background-position: -60px -60px;
 }
 
 .dribbble {
-	background-image:url(../images/dribbble.png);
+	background-position: -120px 0px;
+}
+
+.dribbble:hover {
+	background-position: -120px -60px;
 }
 
 .vimeo {
-	background-image:url(../images/vimeo.png);
+	background-position: -240px 0px;
+}
+
+.vimeo:hover {
+	background-position: -240px -60px;
 }
 
 @media (max-width: 550px) {
@@ -110,4 +137,16 @@ div.wrapper {
 	.social {
 		width: 340px;
 	}
+}
+
+/* CSS for high-resolution devices */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .icons {
+        background-image: url(../images/spritesheet@2x.png);
+        background-size: 420px 120px;
+        background-repeat: no-repeat;
+    }
 }
