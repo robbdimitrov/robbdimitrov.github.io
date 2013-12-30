@@ -1,35 +1,101 @@
+/**
+ * stylesheet.css
+ *
+ * Robert Dimitrov
+ *
+ * Copyright (c) 2013 Robert Dimitrov
+ */
+
 body {
-	background: #4F4FB6;
+	background: #0067AA;
 	font-family: 'PT Sans', sans-serif;
-	overflow: hidden; 
+	color: #F3F3F5;
+}
+
+.wrapper { 
+	overflow: auto; 
 	height: 100%;
 }
 
-div.wrapper { 
-	overflow: auto; 
-	height: 100%; 
-}
-
 .title {
-	font-size: 3em;
+	font-size: 48px;
 	font-weight:normal;
-	color: #F0F0F8;
-	line-height: 62px;
 	text-align:center;
 	margin-top: 13.020833333333%; /* 125/960 */
 	margin-bottom: 20px;
 	margin-left: auto;
     margin-right: auto;
+    margin-top: 80px;
+}
+
+header {
+	height: 60px;
+}
+
+#logo {
+	background-image:url(../images/spritesheet.svg);
+    background-repeat: no-repeat;
+    background-position: -11px -18px;
+    width: 54px;
+    height: 42px;
+    float: left;
+    margin-top: 12px;
+    margin-left: 18px;
+}
+
+#logo:hover {
+	background-position: -13px -162px;
+}
+
+#menu {
+	float: right;
+	margin-right: 25px;
+}
+
+.menu_item {
+	font-family: 'PT Sans', sans-serif;
+	color: #F3F3F5;
+	font-size: 20px;
+	text-decoration: none;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px 5px 5px 5px;
+	border-radius: 6px;
+}
+
+.selected_item {
+	background-color: #0D4991;
+}
+
+.menu_item:hover {
+	background-color: #99BFDC;
+}
+
+.menu_item:active {
+	background-color: #0D4991;
+}
+
+footer {
+	position: relative;
+  	bottom: 0;
+  	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 160px;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 80px;
+	margin-bottom: 30px;
 }
 
 .tagline {
-	font-size: 1.55em;
-	color: #F0F0F8;
+	font-size: 35px;
 	line-height: 33px;
 	text-align:center;
 	margin-top: 20px;
 	margin-left: auto;
     margin-right: auto;
+    margin-top: 80px;
 }
 
 .social {
@@ -37,8 +103,7 @@ div.wrapper {
     text-align:center;
     display:block;
     list-style:none;
-    margin-top: 22px;
-    width: 300px;
+    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -53,100 +118,38 @@ div.wrapper {
 	display: block;
 	margin: 11px;
     float:left;
-    position:relative;
-    background-image:url(../images/spritesheet.png);
-    background-size: 420px 120px;
+    background-image:url(../images/spritesheet.svg);
     background-repeat: no-repeat;
 }
 
 .twitter {
-	background-position:0px 0px;
+	background-position:-90px -8px;
 }
 
 .twitter:hover {
-	background-position: 0px -60px;
+	background-position: -90px -80px;
 }
 
 .github {
-	background-position: -180px 0px;
+	background-position: -170px -8px;
 }
 
 .github:hover {
-	background-position: -180px -60px;
-}
-
-.pinterest {
-	background-position: -300px 0px;
-}
-
-.pinterest:hover {
-	background-position: -300px -60px;
+	background-position: -170px -80px;
 }
 
 .linkedin {
-	background-position: -360px 0px;
+	background-position: -250px -8px;
 }
 
 .linkedin:hover {
-	background-position: -360px -60px;
+	background-position: -250px -80px;
 }
 
-.googleplus {
-	background-position: -60px 0px;
+.mail {
+	background-position: -330px -8px;
 }
 
-.googleplus:hover {
-	background-position: -60px -60px;
-}
-
-.dribbble {
-	background-position: -120px 0px;
-}
-
-.dribbble:hover {
-	background-position: -120px -60px;
-}
-
-.vimeo {
-	background-position: -240px 0px;
-}
-
-.vimeo:hover {
-	background-position: -240px -60px;
-}
-
-@media (max-width: 550px) {
-	.title {
-		line-height: 62px;
-		width: 300px;
-	}
-
-	.tagline {
-		line-height: 33px;
-		width: 300px;
-	}
-}
-
-@media (min-width: 960px) {
-	.title {
-		margin-top: 125px;
-	}
-}
-
-@media (min-width: 400px) {
-	.social {
-		width: 340px;
-	}
-}
-
-/* CSS for high-resolution devices */
-@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
-only screen and (-moz-min-device-pixel-ratio: 1.5),
-only screen and (-o-min-device-pixel-ratio: 3/2),
-only screen and (min-device-pixel-ratio: 1.5) {
-    .social li a {
-        background-image: url(../images/spritesheet@2x.png);
-        background-size: 420px 120px;
-        background-repeat: no-repeat;
-    }
+.mail:hover {
+	background-position: -330px -80px;
 }
