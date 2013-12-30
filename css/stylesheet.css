@@ -33,7 +33,8 @@ header {
 }
 
 #logo {
-	background-image:url(../images/spritesheet.svg);
+	background-image:url(../images/spritesheet.png);
+	background-size: 1000px 400px;
     background-repeat: no-repeat;
     background-position: -11px -18px;
     width: 54px;
@@ -115,7 +116,8 @@ footer {
 	display: block;
 	margin: 11px;
     float:left;
-    background-image:url(../images/spritesheet.svg);
+    background-image:url(../images/spritesheet.png);
+    background-size: 1000px 400px;
     background-repeat: no-repeat;
 }
 
@@ -189,4 +191,123 @@ ul {
 
 .infobox {
 	margin-top: 52px;
+}
+
+#projects_list {
+	margin-top: 70px;
+}
+
+.project_name {
+	font-size: 34px;
+	margin-left: 52px;
+	margin-top: 25px;
+	margin-bottom: 0px;
+}
+
+.project_description {
+	font-size: 20px;
+	margin-left: 52px;
+	margin-top: 25px;
+	margin-bottom: 0px;
+}
+
+.project_button {
+	background-color: #F3F3F5;
+	border-radius: 10px;
+	width: 160px;
+	height: 60px;
+	margin-left: 52px;
+	margin-right: 0px;
+	margin-top: 28px;
+	float: left;
+	font-size: 18px;
+	color: #0067AA;
+}
+
+.project_button:hover {
+	background-color: #99BFDC;
+}
+
+.project_button div {
+	background-image:url(../images/spritesheet.png);
+	background-size: 1000px 400px;
+    background-repeat: no-repeat;
+    margin-left: 16px;
+    float: left;
+}
+
+.website_icon {
+	background-position: -264px -172px;
+	width: 35px;
+	height: 20px;
+	margin-top: 20px;
+}
+
+.appstore_icon {
+	background-position: -105px -162px;
+	width: 35px;
+	height: 40px;
+	margin-top: 9px;
+}
+
+.github_icon {
+	background-position: -188px -165px;
+	width: 28px;
+	height: 34px;
+	margin-top: 13px;
+}
+
+.project_container {
+	margin-top: 10px;
+	width: 100%;
+	height: 240px;
+}
+
+.button_name {
+	margin-left: 16px;
+	float: left;
+}
+
+.project_image {
+	width: 16%;
+	height: 100%;
+	float: left;
+}
+
+.project_content {
+	float: left;
+	width: 60%;
+	height: 100%;
+}
+
+.project_image div {
+	width: 100px;
+	background-image:url(../images/spritesheet.png);
+	background-size: 1000px 400px;
+	background-repeat: no-repeat;
+	float: right;
+}
+
+#lendpal .project_image div {
+	height: 100px;
+	margin-top: 70px;
+	background-position: -406px -6px;
+}
+
+#rdvcalendarview .project_image div {
+	height: 73px;
+	margin-top: 84px;
+	background-position: -522px -11px;
+}
+
+#rdvtabbarcontroller .project_image div {
+	margin-top: 69px;
+	height: 88px;
+	background-position: -649px -9px;
+}
+
+#rdvkeyboardavoiding .project_image div {
+	margin-top: 69px;
+	height: 103px;
+	background-position: -769px -10px;
 }
