@@ -78,10 +78,7 @@ header {
 footer {
 	position: relative;
   	bottom: 0;
-  	margin-bottom: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 160px;
+  	width: 100%;
 	font-size: 18px;
 	text-align: center;
 	margin-top: 80px;
@@ -152,4 +149,44 @@ footer {
 
 .mail:hover {
 	background-position: -330px -80px;
+}
+
+#biography {
+	margin-top: 80px;
+	width: 564px;
+	float: right;
+	padding-right: 16%;
+}
+
+#biography p {
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+
+#information {
+	float: left;
+	margin-top: 80px;
+	margin-left: 16%;
+}
+
+#information img {
+	width: 240px;
+	height: 240px;
+}
+
+h3 {
+	font-size: 36px;
+	font-weight: normal;
+	margin: 0 0 0 0;
+}
+
+ul {
+	padding: 0px;
+	margin: 0;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.infobox {
+	margin-top: 52px;
 }
