@@ -12,16 +12,20 @@
 	    <meta property="og:url" content="http://robbdimitrov.com/"/>
 	    <meta property="og:site_name" content="Robert Dimitrov"/>
 	    <meta property="og:description" content="Maker, fan of cutting edge technology and beautiful design."/>
+	    <!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	</head>
 	<body>
 		<header>
 			<a href="/" id="logo"></a>
-			<ul id="menu">
-				<a href="/" id="home" class="menu_item">Home</a>
-				<a href="/about/" id="about" class="menu_item">About</a>
-				<a href="/projects/" id="projects" class="menu_item">Projects</a>
-				<a href="/blog/" id="blog" class="menu_item selected_item">Blog</a>
-			</ul>
+			<nav>
+				<ul id="menu">
+					<a href="/" id="home" class="menu_item">Home</a>
+					<a href="/about/" id="about" class="menu_item">About</a>
+					<a href="/projects/" id="projects" class="menu_item">Projects</a>
+					<a href="/blog/" id="blog" class="menu_item selected_item">Blog</a>
+				</ul>
+				<a href="" id="menu_button"></a>
+			</nav>
 		</header>
 		<div class="wrapper">
 			<h1 class="title">My Thoughts</h1>
@@ -31,7 +35,7 @@
 						<p class="article_date">Jan 1, 2014</p>
 						<p class="article_length">4 minute read</p>
 					</div>
-					<p class="article_title">DRYing Objective-C</p>
+					<a href="#"><p class="article_title">DRYing Objective-C</p></a>
 					<p class="article_content">
 						Carrot cake sugar plum cheesecake jelly-o powder candy soufflé brownie. Marshmallow 
 						cookie cupcake. Gummies chocolate bar bonbon cake pastry candy canes chocolate dragée. Marzipan marzipan 
@@ -43,7 +47,7 @@
 						<p class="article_date">Jan 1, 2014</p>
 						<p class="article_length">4 minute read</p>
 					</div>
-					<p class="article_title">DRYing Objective-C</p>
+					<a href="#"><p class="article_title">DRYing Objective-C</p></a>
 					<p class="article_content">
 						Carrot cake sugar plum cheesecake jelly-o powder candy soufflé brownie. Marshmallow 
 						cookie cupcake. Gummies chocolate bar bonbon cake pastry candy canes chocolate dragée. Marzipan marzipan 
@@ -55,7 +59,7 @@
 						<p class="article_date">Jan 1, 2014</p>
 						<p class="article_length">4 minute read</p>
 					</div>
-					<p class="article_title">DRYing Objective-C</p>
+					<a href="#"><p class="article_title">DRYing Objective-C</p></a>
 					<p class="article_content">
 						Carrot cake sugar plum cheesecake jelly-o powder candy soufflé brownie. Marshmallow 
 						cookie cupcake. Gummies chocolate bar bonbon cake pastry candy canes chocolate dragée. Marzipan marzipan 
@@ -80,4 +84,6 @@
 		</div>
 		<footer>Copyright &copy; 2014 Robert Dimitrov</footer>
 	</body>
+	<script src="../js/jquery-2.0.3.min.js"></script>
+  	<script src="../js/script.js"></script>
 </html>
