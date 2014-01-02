@@ -99,7 +99,7 @@ article {
     width: 54px;
     height: 42px;
     float: left;
-    margin-top: 12px;
+    margin-top: 10px;
     margin-left: 18px;
 }
 
@@ -265,9 +265,7 @@ header.scrolled {
 	border-radius: 10px;
 	width: 160px;
 	height: 60px;
-	margin-left: 52px;
-	margin-right: 0px;
-	margin-top: 28px;
+	margin: 28px 0 25px 52px;
 	float: left;
 	font-size: 18px;
 	color: #0067AA;
@@ -301,7 +299,7 @@ header.scrolled {
 
 .project_container {
 	margin-top: 10px;
-	height: 240px;
+	min-height: 240px;
 }
 
 .button_name {
@@ -471,6 +469,27 @@ header.scrolled {
 	}
 }
 
+@media only screen and (max-width : 1190px) {
+	#projects_list {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}
+
+@media only screen and (max-width : 1090px) {
+	#projects_list {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+}
+
+@media only screen and (max-width : 960px) {
+	#projects_list {
+		margin-left: 52px;
+		margin-right: 52px;
+	}
+}
+
 @media only screen and (max-width : 920px) {
 	.infobox, #biography_image {
 		margin-left: 6%;
@@ -485,6 +504,17 @@ header.scrolled {
 	.articles {
 		margin-left: 10%;
 		margin-right: 10%;
+	}
+
+	#projects_list {
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+}
+
+@media only screen and (max-width : 840px) {
+	.project_content {
+		width: 80%;
 	}
 }
 
@@ -551,6 +581,62 @@ header.scrolled {
 		margin-left: 10%;
 		display: block;
 		float: none;
+	}
+}
+
+@media only screen and (max-width : 600px) {
+	#projects_list {
+		margin: 0;
+	}
+
+	.project_name {
+		font-size: 28px;
+		text-align: center;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.project_description {
+		font-size: 18px;
+		text-align: center;
+		width: 86%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.project_image {
+		width: 100px;
+		height: 100px;
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+
+	.project_content {
+		float: none;
+		height: 80%;
+		width: 100%;
+		margin-top: 30px;
+	}
+
+	.project_image div {
+		float: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.project_buttons {
+		width: 100%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.project_button {
+		display: block;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
