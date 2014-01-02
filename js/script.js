@@ -10,7 +10,7 @@ $(window).scroll(function() {
 	var $header = $("header");
 	var scrolledClass = "scrolled";
 
-    if ($(window).scrollTop() >= 10) {
+    if ($(window).scrollTop() >= 15) {
     	if (!$header.hasClass(scrolledClass)) {
     		$header.addClass(scrolledClass);
     		$("#logo").addClass(scrolledClass);

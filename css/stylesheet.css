@@ -6,17 +6,19 @@
  * Copyright (c) 2013 Robert Dimitrov
  */
 
+ /* General */
+
 body {
 	background: #0067AA;
 	font-family: 'PT Sans', sans-serif;
-	color: #F3F3F5;
 	margin: 0;
+	font-weight: normal;
 }
 
 h3 {
 	font-size: 36px;
-	font-weight: normal;
 	margin: 0;
+	font-weight: normal;
 }
 
 ul {
@@ -49,7 +51,6 @@ footer {
 
 a {
 	text-decoration: none;
-	color: #F3F3F5;
 }
 
 p a {
@@ -63,7 +64,22 @@ p a:hover, article a:hover {
 nav {
 	float: right;
 	margin-right: 25px;
-	margin-top: 10px;
+	margin-top: 8px;
+}
+
+article {
+	margin-top: 20px;
+	overflow: auto;
+}
+
+/* Custom */
+
+#logo, #menu_button, .social li a,
+.project_button div, .project_image div,
+.article_button div {
+	background-image: url(../images/spritesheet.png);
+	background-size: 1000px 400px;
+    background-repeat: no-repeat;
 }
 
 .wrapper { 
@@ -73,19 +89,12 @@ nav {
 
 .title {
 	font-size: 48px;
-	font-weight:normal;
-	text-align:center;
-	margin-top: 13.020833333333%; /* 125/960 */
-	margin-bottom: 20px;
-	margin-left: auto;
-    margin-right: auto;
-    margin-top: 140px;
+	text-align: center;
+    margin: 140px auto 20px auto;
+    font-weight: normal;
 }
 
 #logo {
-	background-image:url(../images/spritesheet.png);
-	background-size: 1000px 400px;
-    background-repeat: no-repeat;
     background-position: -11px -18px;
     width: 54px;
     height: 42px;
@@ -96,8 +105,6 @@ nav {
 
 #menu_button {
 	display: none;
-	background-image:url(../images/spritesheet.png);
-	background-size: 1000px 400px;
 	background-position: -16px -232px;
 	height: 22px;
 	width: 35px;
@@ -114,26 +121,20 @@ nav {
 }
 
 .menu_item {
-	font-family: 'PT Sans', sans-serif;
-	color: #F3F3F5;
 	font-size: 20px;
-	text-decoration: none;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding: 5px 5px 5px 5px;
 	border-radius: 6px;
 }
 
-.selected_item {
+.selected_item, .menu_item:active {
 	background-color: #0D4991;
 }
 
-.menu_item:hover {
+.menu_item:hover, .project_button:hover, 
+.article_button:hover {
 	background-color: #99BFDC;
-}
-
-.menu_item:active {
-	background-color: #0D4991;
 }
 
 .tagline {
@@ -166,9 +167,6 @@ nav {
 	display: block;
 	margin: 11px;
     float:left;
-    background-image:url(../images/spritesheet.png);
-    background-size: 1000px 400px;
-    background-repeat: no-repeat;
 }
 
 .twitter {
@@ -205,9 +203,10 @@ nav {
 
 #biography {
 	margin-top: 80px;
-	width: 550px;
-	float: left;
-	padding-right: 16%;
+	max-width: 550px;
+	width: 50%;
+	float: right;
+	padding-right: 10%;
 	font-size: 18px;
 }
 
@@ -216,20 +215,20 @@ nav {
 	margin-bottom: 40px;
 }
 
-#information {
+.infobox, #biography_image {
 	float: left;
-	margin-left: 16%;
+	margin-left: 8%;
 	margin-right: 52px;
-	font-size: 20px;
-	margin-top: 80px;
 }
 
-#information img {
+#biography_image {
+	margin-top: 80px;
 	width: 240px;
 	height: 240px;
 }
 
 .infobox {
+	font-size: 20px;
 	margin-top: 52px;
 }
 
@@ -239,8 +238,8 @@ nav {
 
 #projects_list {
 	margin-top: 70px;
-	margin-left: 16%;
-	margin-right: 16%;
+	margin-left: 18%;
+	margin-right: 18%;
 }
 
 .project_name {
@@ -257,8 +256,12 @@ nav {
 	margin-bottom: 0px;
 }
 
-.project_button {
+.project_button, .article_button, 
+header.scrolled {
 	background-color: #F3F3F5;
+}
+
+.project_button {
 	border-radius: 10px;
 	width: 160px;
 	height: 60px;
@@ -270,14 +273,7 @@ nav {
 	color: #0067AA;
 }
 
-.project_button:hover {
-	background-color: #99BFDC;
-}
-
 .project_button div {
-	background-image:url(../images/spritesheet.png);
-	background-size: 1000px 400px;
-    background-repeat: no-repeat;
     margin-left: 16px;
     float: left;
 }
@@ -327,9 +323,6 @@ nav {
 
 .project_image div {
 	width: 100px;
-	background-image:url(../images/spritesheet.png);
-	background-size: 1000px 400px;
-	background-repeat: no-repeat;
 	float: right;
 }
 
@@ -364,11 +357,6 @@ nav {
 	margin-right: 16%;
 }
 
-article {
-	margin-top: 20px;
-	overflow: auto;
-}
-
 .article_info {
 	margin-top: 20px;
 }
@@ -396,7 +384,6 @@ article {
 }
 
 .article_button {
-	background-color: #F3F3F5;
 	border-radius: 10px;
 	width: 120px;
 	height: 60px;
@@ -404,16 +391,6 @@ article {
 	color: #0067AA;
 	margin-left: 26px;
 	margin-right: 26px;
-}
-
-.article_button:hover {
-	background-color: #99BFDC;
-}
-
-.article_button div {
-	background-image:url(../images/spritesheet.png);
-	background-size: 1000px 400px;
-    background-repeat: no-repeat;
 }
 
 .older {
@@ -433,13 +410,13 @@ article {
 	margin-top: 18px;
 }
 
-.older button_name {
+.older .button_name {
 	margin-left: 16px;
 	margin-top: 18px;
 	float: left;
 }
 
-.newer p {
+.newer .button_name {
 	float: right;
 	margin-left: 0px;
 	margin-right: 16px;
@@ -461,10 +438,6 @@ article {
 	margin-right: auto;
 }
 
-header.scrolled {
-	background-color: #F3F3F5;
-}
-
 #logo.scrolled {
 	background-position: -13px -90px;
 }
@@ -477,20 +450,55 @@ header.scrolled {
 	color: #0067AA;
 }
 
-.selected_item.scrolled {
-	color: #F3F3F5;
-}
-
-.menu_item.scrolled:hover {
-	color: #F3F3F5;
-}
-
-.menu_item.scrolled:active {
+.selected_item.scrolled, .menu_item.scrolled:hover,
+.menu_item.scrolled:active, a, .menu_item, body {
 	color: #F3F3F5;
 }
 
 #menu_button.scrolled {
 	background-position: -16px -281px;
+}
+
+/* Media queries */
+
+@media only screen and (min-width : 1200px) {
+	.infobox, #biography_image {
+		margin-left: 16%;
+	}
+
+	#biography {
+		padding-right: 16%;
+	}
+}
+
+@media only screen and (max-width : 920px) {
+	.infobox, #biography_image {
+		margin-left: 6%;
+	}
+
+	#biography {
+		padding-right: 6%;
+	}
+}
+
+@media only screen and (max-width : 880px) {
+	.articles {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+}
+
+@media only screen and (max-width : 770px) {
+	#biography_image {
+		width: 180px;
+		height: 180px;
+	}
+
+	.infobox, #biography_image {
+		margin-left: 6%;
+		margin-right: 30px;
+		font-size: 18px;
+	}
 }
 
 @media only screen and (max-width : 640px) {
@@ -500,5 +508,73 @@ header.scrolled {
 
 	#menu { 
 		display: none;
+	}
+
+	.controls {
+		width: 300px;
+	}
+
+	.article_button {
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+
+	.articles {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+
+	footer {
+		margin-top: 60px;
+	}
+
+	#biography_image {
+		float: none;
+		width: 220px;
+		height: 220px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+	#biography {
+		padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 18px;
+		float: none;
+		width: 80%;
+	}
+
+	.infobox {
+		width: 60%;
+		margin-left: 10%;
+		display: block;
+		float: none;
+	}
+}
+
+@media only screen and (max-width : 520px) {
+	.title {
+		margin-left: 5%;
+	    margin-right: 5%;
+	}
+
+	.article_date {
+		font-size: 14px;
+	}
+
+	.article_length {
+		font-size: 14px;
+	}
+
+	.article_title {
+		font-size: 30px;
+		margin-top: 8px;
+	}
+
+	.article_content {
+		font-size: 18px;
+		margin-top: 8px;
 	}
 }
