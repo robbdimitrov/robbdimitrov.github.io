@@ -57,7 +57,8 @@ p a {
 	text-decoration: underline;
 }
 
-p a:hover, article a:hover {
+p a:hover, article a:hover, 
+.blog_title:hover h1 {
 	color: #99BFDC;
 }
 
