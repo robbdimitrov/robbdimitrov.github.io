@@ -34,7 +34,7 @@ $(window).scroll(function() {
 });
 
 $("#menu_button").click(function (event) {
-    var $dropdownMenu = $("#dropdown_menu");
+    var $dropdownMenu = $("#dropdown");
     
     $dropdownMenu.slideToggle(200);
 
@@ -43,7 +43,7 @@ $("#menu_button").click(function (event) {
 });
 
 $("body").click(function (event) {
-    var $dropdownMenu = $("#dropdown_menu");
+    var $dropdownMenu = $("#dropdown");
 
     if ($dropdownMenu.is(":visible")) {
         $dropdownMenu.slideUp(200);
