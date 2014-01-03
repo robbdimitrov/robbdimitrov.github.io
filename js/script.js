@@ -17,7 +17,7 @@ $(window).scroll(function() {
     		$("#menu_button").addClass(scrolledClass);
 
 	        $("#menu").children().each(function () {
-			    $(this).addClass(scrolledClass);
+			    $(this).children().addClass(scrolledClass);
 			});
     	};
     } else {
@@ -27,12 +27,27 @@ $(window).scroll(function() {
     		$("#menu_button").removeClass(scrolledClass);
 
 	        $("#menu").children().each(function () {
-			    $(this).removeClass(scrolledClass);
+			    $(this).children().removeClass(scrolledClass);
 			});
     	};
     }
 });
 
 $("#menu_button").click(function (event) {
+    var $dropdownMenu = $("#dropdown_menu");
+    
+    $dropdownMenu.slideToggle(200);
+
+    event.stopPropagation();
 	event.preventDefault();
+});
+
+$("body").click(function (event) {
+    var $dropdownMenu = $("#dropdown_menu");
+
+    if ($dropdownMenu.is(":visible")) {
+        $dropdownMenu.slideUp(200);
+    }
+    
+    event.preventDefault();
 });

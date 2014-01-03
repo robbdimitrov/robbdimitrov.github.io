@@ -26,17 +26,17 @@ ul {
 	margin: 0;
 	margin-left: 20px;
 	margin-top: 10px;
-
 }
 
 header {
-	height: 60px;
 	position: fixed;
 	width: 100%;
 	background-color: #0067AA;
 	padding: 0;
 	margin: 0;
 	z-index: 100;
+	overflow: visible;
+	min-height: 60px;
 }
 
 footer {
@@ -63,8 +63,8 @@ p a:hover, article a:hover {
 
 nav {
 	float: right;
-	margin-right: 25px;
-	margin-top: 8px;
+	margin-right: 18px;
+	margin-top: 0;
 }
 
 article {
@@ -80,6 +80,17 @@ article {
 	background-image: url(../images/spritesheet.png);
 	background-size: 1000px 400px;
     background-repeat: no-repeat;
+}
+
+#menu {
+	list-style: none;
+}
+
+#menu li {
+	margin: 0;
+	padding: 0;
+	float: left;
+	margin-top: 6px;
 }
 
 .wrapper { 
@@ -108,8 +119,7 @@ article {
 	background-position: -16px -232px;
 	height: 22px;
 	width: 35px;
-	margin-right: 5px;
-	margin-top: 12px;
+	margin-top: 18px;
 }
 
 #menu_button:hover {
@@ -122,19 +132,20 @@ article {
 
 .menu_item {
 	font-size: 20px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 8px;
+	margin-right: 8px;
 	padding: 5px 5px 5px 5px;
 	border-radius: 6px;
 }
 
-.selected_item, .menu_item:active {
-	background-color: #0D4991;
+.menu_item:hover, .project_button:hover, 
+.article_button:hover, .dropdown_menu_item:hover {
+	background-color: #99BFDC;
 }
 
-.menu_item:hover, .project_button:hover, 
-.article_button:hover {
-	background-color: #99BFDC;
+.selected_item, .menu_item:active,
+.dropdown_menu_item:active {
+	background-color: #0D4991;
 }
 
 .tagline {
@@ -444,17 +455,35 @@ header.scrolled {
 	background-position: -13px -162px;
 }
 
-.menu_item.scrolled {
+.menu_item.scrolled, .dropdown_menu_item {
 	color: #0067AA;
 }
 
-.selected_item.scrolled, .menu_item.scrolled:hover,
-.menu_item.scrolled:active, a, .menu_item, body {
+.selected_item.scrolled, .menu_item.scrolled:hover, 
+.menu_item.scrolled:active, a, .menu_item, body,
+.dropdown_menu_item:hover, .dropdown_menu_item:active {
 	color: #F3F3F5;
 }
 
 #menu_button.scrolled {
 	background-position: -16px -281px;
+}
+
+.dropdown_menu_item {
+	text-align: center;
+	font-size: 18px;
+	line-height: 50px;
+	display: block;
+}
+
+#dropdown_menu {
+	display: none;
+	list-style: none;
+	width: 100%;
+	margin-top: 60px;
+	margin-left: 0;
+	background-color: #F3F3F5;
+	height: 200px;
 }
 
 /* Media queries */
@@ -528,6 +557,12 @@ header.scrolled {
 		margin-left: 6%;
 		margin-right: 30px;
 		font-size: 18px;
+	}
+}
+
+@media only screen and (min-width : 641px) {
+	#dropdown_menu {
+		display: none !important;
 	}
 }
 
