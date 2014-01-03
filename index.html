@@ -1,11 +1,12 @@
 ---
 ---
+{% capture location %}{{ page.url | remove_first:'/' | split:'/' | first }}{% endcapture %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Robert Dimitrov</title>
-		<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 		<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,6 +16,9 @@
 	    <meta property="og:url" content="http://robbdimitrov.com/"/>
 	    <meta property="og:site_name" content="Robert Dimitrov"/>
 	    <meta property="og:description" content="Maker, fan of cutting edge technology and beautiful design."/>
+	    <!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 	</head>
 	<body>
 		<header>

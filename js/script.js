@@ -47,6 +47,5 @@ $("body").click(function (event) {
 
     if ($dropdownMenu.is(":visible")) {
         $dropdownMenu.slideUp(200);
-        event.preventDefault();
     }
 });
