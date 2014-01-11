@@ -35,7 +35,7 @@ As a general rule, when adding methods to categories, make sure to insert prefix
 
 ## Subclassing
 
-Subclassing is the most natural way to avoid copying and pasting, which makes changes easier. As an example you can look at the code from one of my open source projects - [RDVKeyboardAvoiding](https//github.com/robbdimitrov/RDVKeyboardAvoiding). I've isolated the repeating code inside a [UIScrollView](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIScrollView_Class/Reference/UIScrollView.html) subclass and made it reusable. The header file is clean and simple, making the class easy to use drop-in replacement of [UIScrollView](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIScrollView_Class/Reference/UIScrollView.html).
+Subclassing is the most natural way to avoid copying and pasting, which makes changes easier. As an example you can look at the code from one of my open source projects - [RDVKeyboardAvoiding](https://github.com/robbdimitrov/RDVKeyboardAvoiding). I've isolated the repeating code inside a [UIScrollView](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIScrollView_Class/Reference/UIScrollView.html) subclass and made it reusable. The header file is clean and simple, making the class easy to use drop-in replacement of [UIScrollView](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIScrollView_Class/Reference/UIScrollView.html).
 
 ```objective-c
 // RDVKeyboardAvoidingScrollView.h
