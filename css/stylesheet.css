@@ -53,11 +53,11 @@ a {
 	text-decoration: none;
 }
 
-p a {
+#biography p a {
 	text-decoration: underline;
 }
 
-p a:hover, article a:hover, 
+p a:hover, article a:hover,
 .blog_title:hover h1 {
 	color: #99BFDC;
 }
@@ -94,8 +94,8 @@ article {
 	margin-top: 6px;
 }
 
-.wrapper { 
-	overflow: auto; 
+.wrapper {
+	overflow: auto;
 	height: 100%;
 }
 
@@ -140,7 +140,7 @@ article {
 	min-width: 60px;
 }
 
-.menu_item:hover, .project_button:hover, 
+.menu_item:hover, .project_button:hover,
 .article_button:hover, .dropdown_menu_item:hover {
 	background-color: #99BFDC;
 }
@@ -269,7 +269,7 @@ article {
 	margin-bottom: 0px;
 }
 
-.project_button, .article_button, 
+.project_button, .article_button,
 header.scrolled {
 	background-color: #F3F3F5;
 }
@@ -479,9 +479,9 @@ article h2 {
 	color: #0067AA;
 }
 
-.selected_item.scrolled, .menu_item.scrolled:hover, 
+.selected_item.scrolled, .menu_item.scrolled:hover,
 .menu_item.scrolled:active, a, .menu_item,
-.dropdown_menu_item:hover, .dropdown_menu_item:active, 
+.dropdown_menu_item:hover, .dropdown_menu_item:active,
 .title, .tagline, footer, #biography, .infobox, #projects_list,
 .article_info, article > p, article > h2 {
 	color: #F3F3F5;
@@ -604,7 +604,7 @@ article h2 {
 		display:block;
 	}
 
-	#menu { 
+	#menu {
 		display: none;
 	}
 
@@ -671,7 +671,7 @@ article h2 {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	
+
 	.project_image {
 		width: 100px;
 		height: 100px;
