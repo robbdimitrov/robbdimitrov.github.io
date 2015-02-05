@@ -9,7 +9,7 @@
  /* General */
 
 body {
-	background: #0067AA;
+	background: rgba(250, 250, 250, 1.0);
 	font-family: 'PT Sans', sans-serif;
 	margin: 0;
 	font-weight: normal;
@@ -31,7 +31,7 @@ ul {
 header {
 	position: fixed;
 	width: 100%;
-	background-color: #0067AA;
+	background-color: rgba(250, 250, 250, 0.9);/*#0067AA 70;*/
 	padding: 0;
 	margin: 0;
 	z-index: 100;
@@ -41,8 +41,8 @@ header {
 
 footer {
 	position: relative;
-  	bottom: 0;
-  	width: 100%;
+  bottom: 0;
+  width: 100%;
 	font-size: 18px;
 	text-align: center;
 	margin-top: 80px;
@@ -59,7 +59,7 @@ a {
 
 p a:hover, article a:hover,
 .blog_title:hover h1 {
-	color: #99BFDC;
+	color: rgba(210, 217, 219, 1.0);
 }
 
 nav {
@@ -80,7 +80,7 @@ article {
 .article_button div {
 	background-image: url(../images/spritesheet.png);
 	background-size: 1000px 400px;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 #menu {
@@ -102,17 +102,17 @@ article {
 .title {
 	font-size: 48px;
 	text-align: center;
-    margin: 140px auto 20px auto;
-    font-weight: normal;
+  margin: 140px auto 20px auto;
+  font-weight: normal;
 }
 
 #logo {
-    background-position: -11px -18px;
-    width: 54px;
-    height: 42px;
-    float: left;
-    margin-top: 10px;
-    margin-left: 18px;
+  background-position: -11px -18px;
+  width: 54px;
+  height: 42px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 18px;
 }
 
 #menu_button {
@@ -142,12 +142,12 @@ article {
 
 .menu_item:hover, .project_button:hover,
 .article_button:hover, .dropdown_menu_item:hover {
-	background-color: #99BFDC;
+	background-color: rgba(210, 217, 219, 1.0);
 }
 
 .selected_item, .menu_item:active,
 .dropdown_menu_item:active {
-	background-color: #0D4991;
+	background-color: rgba(235, 235, 235, 1.0);
 }
 
 .tagline {
@@ -156,18 +156,18 @@ article {
 	text-align:center;
 	margin-top: 20px;
 	margin-left: auto;
-    margin-right: auto;
-    margin-top: 80px;
+  margin-right: auto;
+  margin-top: 80px;
 }
 
 .social {
-    padding:0;
-    text-align:center;
-    display:block;
-    list-style:none;
-    margin-top: 80px;
-    margin-left: auto;
-    margin-right: auto;
+  padding:0;
+  text-align:center;
+  display:block;
+  list-style:none;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .social li {
@@ -269,9 +269,8 @@ article {
 	margin-bottom: 0px;
 }
 
-.project_button, .article_button,
-header.scrolled {
-	background-color: #F3F3F5;
+.project_button, .article_button {
+	background-color: rgba(235, 235, 235, 1.0);
 }
 
 .project_button {
@@ -281,7 +280,7 @@ header.scrolled {
 	margin: 28px 0 25px 52px;
 	float: left;
 	font-size: 18px;
-	color: #0067AA;
+	color: rgba(69, 74, 77, 1.0);
 }
 
 .project_button div {
@@ -413,7 +412,7 @@ article h2 {
 	width: 120px;
 	height: 60px;
 	font-size: 18px;
-	color: #0067AA;
+	color: rgba(250, 250, 250, 1.0);
 	margin-left: 26px;
 	margin-right: 26px;
 }
@@ -467,28 +466,10 @@ article h2 {
 	margin-right: auto;
 }
 
-#logo.scrolled {
-	background-position: -13px -90px;
-}
-
-#logo.scrolled:hover {
-	background-position: -13px -162px;
-}
-
-.menu_item.scrolled, .dropdown_menu_item {
-	color: #0067AA;
-}
-
-.selected_item.scrolled, .menu_item.scrolled:hover,
-.menu_item.scrolled:active, a, .menu_item,
-.dropdown_menu_item:hover, .dropdown_menu_item:active,
+a, .menu_item, .dropdown_menu_item, .dropdown_menu_item:active,
 .title, .tagline, footer, #biography, .infobox, #projects_list,
 .article_info, article > p, article > h2 {
-	color: #F3F3F5;
-}
-
-#menu_button.scrolled {
-	background-position: -16px -281px;
+	color: rgba(69, 74, 77, 1.0);/*#F3F3F5;*/
 }
 
 .dropdown_menu_item {
