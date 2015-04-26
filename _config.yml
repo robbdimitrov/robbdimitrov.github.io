@@ -1,6 +1,6 @@
 name: 'Robert Dimitrov'
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 url:    'http://robbdimitrov.com'
 author: 'Robert Dimitrov'
 
