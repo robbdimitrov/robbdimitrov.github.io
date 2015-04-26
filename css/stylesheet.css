@@ -190,6 +190,14 @@ article {
 	background-position: -90px -80px;
 }
 
+.instagram {
+	background-position:-93px -232px;
+}
+
+.instagram:hover {
+	background-position: -173px -232px;
+}
+
 .github {
 	background-position: -170px -8px;
 }
