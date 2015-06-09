@@ -9,3 +9,4 @@ paginate_path: '/blog/page:num/'
 permalink:     '/blog/:year/:title/'
 relative_permalinks: false
 safe:     true
+encoding:     "utf-8"
