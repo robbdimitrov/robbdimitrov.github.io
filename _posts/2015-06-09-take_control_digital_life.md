@@ -19,7 +19,7 @@ Use two factor authentication whenever possible. Most of the services on the web
 When making a new account for a service, ignore the “login with Facebook/Twitter/etc.” buttons and create a native account for the platform. This is both more secure and allows for better management of what type of your personal information the service gets.
 
 ## Hobbies and memory
-Before Google, Wikipedia and todo lists, people used to know a lot of information and use their brans more. Currently it’s much easier and widely preferred to delegate your tasks and shopping list to the calendar or todo app and search in google for the answer of some question. Memory is being used less than ever. Evolution isn’t stupid - it removes things that aren’t used plus this weakens your memory. Forget about apps replacing your brain - think, remember, learn, play sudoku and similar challenges and brain games.
+Before Google, Wikipedia and todo lists, people used to know a lot of information and use their brans more. Currently it’s much easier and widely preferred to delegate your tasks and shopping list to the calendar or todo app and [search in google](https://www.youtube.com/watch?v=272l6207rWA) for the [answer of some question](https://www.youtube.com/watch?v=InlMjKJBrbE). Memory is being used less than ever. Evolution isn’t stupid - it removes things that aren’t used plus this weakens your memory. Forget about apps replacing your brain - think, remember, learn, play sudoku and similar challenges and brain games.
 
 Photons from screens at the evening disturb the sleep and hinder the recovery process of our organism. Create a challenge for yourself and stop using technology past 6 o’clock at the evening. This will result in a better and healthier lifestyle.
 
