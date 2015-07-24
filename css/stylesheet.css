@@ -155,8 +155,8 @@ article {
 	line-height: 33px;
 	text-align:center;
 	margin-top: 20px;
-	margin-left: auto;
-  margin-right: auto;
+	margin-left: 26%;
+  margin-right: 26%;
   margin-top: 80px;
 }
 
@@ -166,8 +166,8 @@ article {
   display:block;
   list-style:none;
   margin-top: 80px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .social li {
