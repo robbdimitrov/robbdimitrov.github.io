@@ -1,14 +1,6 @@
 name: 'Robert Dimitrov'
-markdown: redcarpet
-highlighter: rouge
-url:    'http://robbdimitrov.com'
-author: 'Robert Dimitrov'
+url: 'http://robbdimitrov.com'
 
-paginate:      10
-paginate_path: '/blog/page:num/'
-permalink:     '/blog/:year/:title/'
-relative_permalinks: false
-# safe:     true
-encoding:     "utf-8"
+encoding: "utf-8"
 future: true
 gems: [jekyll-paginate]
