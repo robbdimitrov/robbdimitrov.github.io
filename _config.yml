@@ -2,5 +2,4 @@ name: 'Robert Dimitrov'
 url: 'http://robbdimitrov.com'
 
 encoding: "utf-8"
-future: true
-gems: [jekyll-paginate]
+safe: true

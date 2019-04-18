@@ -10,13 +10,8 @@
 
 body {
 	background: rgba(250, 250, 250, 1.0);
-	font-family: 'PT Sans', sans-serif;
-	margin: 0;
-	font-weight: normal;
-}
-
-h3 {
-	font-size: 34px;
+  font-family: 'PT Sans', sans-serif;
+  color: rgba(69, 74, 77, 1.0);
 	margin: 0;
 	font-weight: normal;
 }
@@ -29,13 +24,9 @@ ul {
 }
 
 header {
-	position: fixed;
 	width: 100%;
-	background-color: rgba(250, 250, 250, 0.9);/*#0067AA 70;*/
 	padding: 0;
 	margin: 0;
-	z-index: 100;
-	overflow: visible;
 	min-height: 60px;
 }
 
@@ -50,49 +41,11 @@ footer {
 	margin-bottom: 30px;
 }
 
-a {
-	text-decoration: none;
-}
-
-#biography p a {
-	text-decoration: underline;
-}
-
-p a:hover, article a:hover,
-.blog_title:hover h1 {
-	color: rgba(210, 217, 219, 1.0);
-}
-
-nav {
-	float: right;
-	margin-right: 18px;
-	margin-top: 0;
-}
-
-article {
-	margin-top: 20px;
-	overflow: visible;
-}
-
-/* Custom */
-
-#logo, #menu_button, .social li a,
-.project_button div, .project_image div,
-.article_button div {
+.logo,
+.social li a {
 	background-image: url(../images/spritesheet.png);
 	background-size: 1000px 400px;
   background-repeat: no-repeat;
-}
-
-#menu {
-	list-style: none;
-}
-
-#menu li {
-	margin: 0;
-	padding: 0;
-	float: left;
-	margin-top: 6px;
 }
 
 .wrapper {
@@ -107,48 +60,13 @@ article {
   font-weight: normal;
 }
 
-#logo {
+.logo {
   background-position: -11px -18px;
   width: 54px;
   height: 42px;
   float: left;
   margin-top: 10px;
   margin-left: 18px;
-}
-
-#menu_button {
-	display: none;
-	background-position: -16px -232px;
-	height: 22px;
-	width: 35px;
-	margin-top: 18px;
-}
-
-#menu_button:hover {
-	background-position: -16px -330px;
-}
-
-#logo:hover {
-	background-position: -13px -162px;
-}
-
-.menu_item {
-	font-size: 20px;
-	margin-left: 8px;
-	margin-right: 8px;
-	padding: 5px 5px 5px 5px;
-	border-radius: 6px;
-	min-width: 60px;
-}
-
-.menu_item:hover, .project_button:hover,
-.article_button:hover, .dropdown_menu_item:hover {
-	background-color: rgba(210, 217, 219, 1.0);
-}
-
-.selected_item, .menu_item:active,
-.dropdown_menu_item:active {
-	background-color: rgba(235, 235, 235, 1.0);
 }
 
 .tagline {
@@ -218,295 +136,6 @@ article {
 
 .medium:hover {
 	background-position: -330px -232px;
-}
-
-.mail {
-	background-position: -330px -8px;
-}
-
-.mail:hover {
-	background-position: -330px -80px;
-}
-
-#biography {
-	margin-top: 80px;
-	max-width: 550px;
-	width: 50%;
-	float: right;
-	padding-right: 10%;
-	font-size: 18px;
-}
-
-#biography p {
-	margin-top: 0px;
-	margin-bottom: 40px;
-}
-
-.infobox, #biography_image {
-	float: left;
-	margin-left: 8%;
-	margin-right: 52px;
-}
-
-#biography_image {
-	margin-top: 80px;
-	width: 240px;
-	height: 240px;
-}
-
-.infobox {
-	font-size: 19px;
-	margin-top: 52px;
-}
-
-.infobox li {
-	margin-top: 10px;
-}
-
-#projects_list {
-	margin-top: 70px;
-	margin-left: 18%;
-	margin-right: 18%;
-}
-
-.project_name {
-	font-size: 34px;
-	margin-left: 52px;
-	margin-top: 25px;
-	margin-bottom: 0px;
-}
-
-.project_description {
-	font-size: 20px;
-	margin-left: 52px;
-	margin-top: 25px;
-	margin-bottom: 0px;
-}
-
-.project_button, .article_button {
-	background-color: rgba(235, 235, 235, 1.0);
-}
-
-.project_button {
-	border-radius: 10px;
-	width: 160px;
-	height: 60px;
-	margin: 28px 0 25px 52px;
-	float: left;
-	font-size: 18px;
-	color: rgba(69, 74, 77, 1.0);
-}
-
-.project_button div {
-    margin-left: 16px;
-    float: left;
-}
-
-.website_icon {
-	background-position: -264px -172px;
-	width: 35px;
-	height: 20px;
-	margin-top: 20px;
-}
-
-.appstore_icon {
-	background-position: -105px -162px;
-	width: 35px;
-	height: 40px;
-	margin-top: 9px;
-}
-
-.github_icon {
-	background-position: -188px -165px;
-	width: 28px;
-	height: 34px;
-	margin-top: 13px;
-}
-
-.project_container {
-	margin-top: 10px;
-	min-height: 240px;
-}
-
-.button_name {
-	margin-left: 16px;
-	float: left;
-	margin-top: 18px;
-}
-
-.project_image {
-	width: 100px;
-	height: 100%;
-	float: left;
-}
-
-.project_content {
-	float: left;
-	height: 100%;
-}
-
-.project_image div {
-	width: 100px;
-	float: right;
-}
-
-#lendpal .project_image div {
-	height: 100px;
-	margin-top: 70px;
-	background-position: -406px -6px;
-}
-
-#rdvcalendarview .project_image div {
-	height: 73px;
-	margin-top: 84px;
-	background-position: -522px -11px;
-}
-
-#rdvtabbarcontroller .project_image div {
-	margin-top: 69px;
-	height: 88px;
-	background-position: -649px -9px;
-}
-
-#rdvkeyboardavoiding .project_image div {
-	margin-top: 69px;
-	height: 103px;
-	background-position: -769px -10px;
-}
-
-.articles {
-	margin-top: 80px;
-	margin-bottom: 50px;
-	margin-left: 16%;
-	margin-right: 16%;
-	max-width: 900px;
-}
-
-.article_info {
-	margin-top: 20px;
-	margin-bottom: 0;
-}
-
-.article_date {
-	font-size: 18px;
-	margin-right: 30px;
-	display: inline-block;
-	margin-bottom: 0;
-}
-
-.article_length {
-	font-size: 18px;
-	display: inline-block;
-	margin-bottom: 0;
-}
-
-.article_title {
-	font-size: 40px;
-	margin-top: 18px;
-	margin-bottom: 0;
-}
-
-.article_content {
-	font-size: 22px;
-	margin-top: 18px;
-	margin-bottom: 20px;
-}
-
-article p {
-	font-size: 20px;
-}
-
-article h2 {
-	font-size: 26px;
-	font-weight: normal;
-}
-
-.article_button {
-	border-radius: 10px;
-	width: 120px;
-	height: 60px;
-	font-size: 18px;
-	color: rgba(250, 250, 250, 1.0);
-	margin-left: 26px;
-	margin-right: 26px;
-}
-
-#disqus_thread {
-	margin-top: 80px;
-}
-
-.older {
-	float: left;
-}
-
-.newer {
-	float: right;
-}
-
-.older div {
-	background-position: -362px -170px;
-	float: left;
-	margin-left: 16px;
-	width: 14px;
-	height: 24px;
-	margin-top: 18px;
-}
-
-.older .button_name {
-	margin-left: 16px;
-	margin-top: 18px;
-	float: left;
-}
-
-.newer .button_name {
-	float: right;
-	margin-left: 0px;
-	margin-right: 16px;
-}
-
-.newer div {
-	background-position: -424px -170px;
-	float: right;
-	margin-right: 16px;
-	width: 14px;
-	height: 24px;
-	margin-top: 18px;
-}
-
-.controls {
-	margin-top: 40px;
-	width: 344px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-a, .menu_item, .dropdown_menu_item, .dropdown_menu_item:active,
-.title, .tagline, footer, #biography, .infobox, #projects_list,
-.article_info, article > p, article > h2 {
-	color: rgba(69, 74, 77, 1.0);/*#F3F3F5;*/
-}
-
-.dropdown_menu_item {
-	text-align: center;
-	font-size: 18px;
-	line-height: 50px;
-	display: block;
-}
-
-#dropdown_menu {
-	list-style: none;
-	margin-left: 0;
-	background-color: #F3F3F5;
-	margin-top: 60px;
-}
-
-#dropdown {
-	display: none;
-	width: 100%;
-	height: 260px;
-	margin: 0;
-	padding: 0;
-	position: fixed;
 }
 
 @media only screen and (max-width : 520px) {
