@@ -1,4 +1,4 @@
-# Robert Dimtrov's Website and Blog
+# Robert Dimtrov's Website
 
 You can view this website at [robbdimitrov.com](http://robbdimitrov.com/)
 
