@@ -1,6 +1,6 @@
 # Robert Dimtrov's Website
 
-You can view this website at [robbdimitrov.com](http://robbdimitrov.com/)
+This is the source code for [robbdimitrov.com](http://robbdimitrov.com/).
 
 ## License
 
