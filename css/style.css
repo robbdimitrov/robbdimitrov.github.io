@@ -17,14 +17,6 @@ body {
   color: #454a4d;
 }
 
-footer {
-  height:30px;
-  margin-top: 80px;
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
 svg {
   fill: #454a4d;
 }
@@ -39,7 +31,7 @@ svg {
 
 .subtitle {
   font-size: 1.875rem; /* 48 / 16 */
-  text-align:center;
+  text-align: center;
   margin-top: 80px;
 }
 
@@ -50,11 +42,16 @@ svg {
   width: 50px;
 }
 
-.social {
+.content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 80px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.social {
+  display: flex;
+  margin: 80px 0;
 }
 
 .social-button {
