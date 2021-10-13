@@ -1,36 +1,47 @@
-/* Reset */
+/* General */
+
+:root {
+  --background-color: #fafafa;
+  --text-color: #454a4d;
+}
 
 body, h1, p, ul, a, li {
   margin: 0;
   padding: 0;
 }
 
-ul {
-  list-style: none;
+/* Font */
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');
 }
 
 /* Elements */
 
 body {
-  font-family: 'PT Sans', sans-serif;
-  background: #fafafa;
-  color: #454a4d;
+  font-family: 'Roboto', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 svg {
-  fill: #454a4d;
+  fill: var(--text-color);
 }
 
 /* Text */
 
 .title {
-  font-size: 3rem; /* 48 / 16 */
+  font-size: 3rem;
   text-align: center;
   margin-top: 120px;
 }
 
 .subtitle {
-  font-size: 1.875rem; /* 48 / 16 */
+  font-size: 1.875rem;
   text-align: center;
   margin-top: 80px;
 }
@@ -52,6 +63,7 @@ svg {
 .social {
   display: flex;
   margin: 80px 0;
+  list-style: none;
 }
 
 .social-button {
@@ -81,13 +93,9 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #323232;
-    color: #f0f0f0;
-  }
-
-  svg {
-    fill: #f0f0f0;
+  :root {
+    --background-color: #323232;
+    --text-color: #f0f0f0;
   }
 
   .social-button:hover {
