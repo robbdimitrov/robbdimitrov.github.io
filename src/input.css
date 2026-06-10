@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base configuration handled by Tailwind, injecting custom effects here */
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Engineering-grade subtle dot grid */
+.bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background-size: 32px 32px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+:root:not(.dark) .bg-grid {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+/* Subtle vignette to focus the center */
+.bg-vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 30%, rgba(9, 9, 11, 0.8) 100%);
+}
+
+:root:not(.dark) .bg-vignette {
+    background: radial-gradient(circle at center, transparent 30%, rgba(244, 244, 245, 0.9) 100%);
+}
+
+/* High-end Spotlight Border Effect */
+.spotlight-card {
+    position: relative;
+    border-radius: 1rem;
+    background-color: rgba(24, 24, 27, 0.5); /* zinc-900 with transparency */
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+:root:not(.dark) .spotlight-card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.spotlight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+:root:not(.dark) .spotlight-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+/* The magic glowing border */
+.spotlight-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 1px; /* border thickness */
+    background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(52, 211, 153, 0.5), transparent 40%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+:root:not(.dark) .spotlight-card::after {
+    background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(16, 185, 129, 0.4), transparent 40%);
+}
+
+.spotlight-card:hover::after {
+    opacity: 1;
+}
+
+/* Monospace text selection color */
+::selection {
+    background: rgba(52, 211, 153, 0.2);
+    color: inherit;
+}
+
+@media print {
+    html { font-size: 12px !important; }
+    body, html.dark body { background: #ffffff !important; color: #000000 !important; }
+    .bg-grid, .bg-vignette, #theme-toggle { display: none !important; }
+    .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+    .spotlight-card::before, .spotlight-card::after { display: none !important; }
+    
+    /* Single column layout for print */
+    main { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    main > div {
+        display: block !important;
+    }
+    
+    /* Prevent timeline breaks across pages */
+    .group {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Remove timeline border and dots to save space */
+    .pl-6 { padding-left: 0 !important; }
+    .border-l { border-left: none !important; }
+    .group > .absolute { display: none !important; }
+    
+    /* Hide decorative horizontal dividers */
+    .h-px.bg-zinc-200 { display: none !important; }
+
+    .lg\:sticky { position: static !important; }
+    a { text-decoration: none !important; color: inherit !important; }
+    * { -webkit-print-color-adjust: exact !important; color-adjust: exact !important; }
+    
+    /* Colors and Borders */
+    .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700, .dark\:text-zinc-300, .dark\:text-zinc-400 { color: #444 !important; }
+    .text-zinc-900, .dark\:text-zinc-100, .dark\:text-zinc-50 { color: #000 !important; }
+    .border-zinc-300, .dark\:border-zinc-800, .dark\:border-zinc-700\/50 { border-color: #ccc !important; }
+    
+    /* Compact the skill pills */
+    .rounded-xl, .rounded { 
+        border: 1px solid #bbb !important; 
+        background: transparent !important; 
+        color: #333 !important; 
+        padding: 0.1rem 0.4rem !important;
+    }
+    
+    /* Connect links - make them less bulky */
+    .px-5.py-3\.5 { padding: 0.25rem 0.5rem !important; }
+    
+    i[data-lucide] { color: #555 !important; }
+    .bg-zinc-100\/80, .dark\:bg-zinc-800\/50, .bg-zinc-200\/50 { background: transparent !important; }
+    .text-emerald-500, .text-emerald-600, .dark\:text-emerald-400 { color: #059669 !important; }
+}

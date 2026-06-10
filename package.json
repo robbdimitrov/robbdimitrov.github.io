@@ -1,0 +1,25 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "Source code for my web-based interactive curriculum vitae.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./src/input.css -o ./src/style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robbdimitrov/robbdimitrov.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/robbdimitrov/robbdimitrov.github.io/issues"
+  },
+  "homepage": "https://github.com/robbdimitrov/robbdimitrov.github.io#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
