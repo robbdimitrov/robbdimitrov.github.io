@@ -1,5 +1,6 @@
 {
-  "name": "cv",
+  "name": "robbdimitrov.github.io",
+  "private": true,
   "version": "1.0.0",
   "description": "Source code for my web-based interactive curriculum vitae.",
   "main": "index.js",
