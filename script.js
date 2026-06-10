@@ -67,3 +67,17 @@ document.querySelectorAll('.spotlight-card').forEach(card => {
         card.style.setProperty('--mouse-y', `-1000px`);
     });
 });
+
+// Anti-Scraping Email Obfuscation
+setTimeout(() => {
+    // Construct email dynamically to hide from basic HTML scrapers
+    const user = 'robert_dimitrov';
+    const domain = 'me.com';
+    const email = user + '@' + domain;
+    
+    const webEmail = document.getElementById('web-email');
+    if (webEmail) webEmail.href = 'mailto:' + email;
+    
+    const printEmail = document.getElementById('print-email');
+    if (printEmail) printEmail.textContent = email;
+}, 100);
