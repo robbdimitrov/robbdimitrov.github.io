@@ -42,10 +42,10 @@
     <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto w-full p-6 lg:p-12 my-8 lg:my-auto">
         
         <!-- Left Column -->
-        <div class="lg:col-span-4 flex flex-col gap-6">
+        <div class="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-12 h-fit">
             
             <!-- Profile Card -->
-            <div class="spotlight-card p-8 lg:p-10 flex flex-col h-full">
+            <div class="spotlight-card p-8 lg:p-10 flex flex-col h-fit">
                 <div class="mb-4">
                     <h1 class="text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-3">Robert<br/>Dimitrov</h1>
                     <div class="flex flex-col gap-1.5 mt-4">
@@ -56,7 +56,10 @@
                     </div>
                 </div>
                 
-                <p class="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed my-6">Builder, craftsman, and minimalist. Over 14 years of experience architecting and delivering robust, scalable software solutions.</p>
+                <div class="my-6 space-y-4 text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p>Builder, craftsman, and minimalist. Software engineer with over 14 years of experience building distributed systems and full-stack applications.</p>
+                    <p class="font-mono text-sm text-zinc-500 dark:text-zinc-500">Focusing on high availability, clean design patterns, and stable operations.</p>
+                </div>
                 
                 <!-- Connect Links -->
                 <div class="flex flex-col gap-4 mt-auto">
@@ -75,15 +78,7 @@
                 </div>
             </div>
 
-            <!-- Philosophy Card -->
-            <div class="spotlight-card p-8 h-fit">
-                <h3 class="font-mono text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-5 flex items-center gap-2">
-                    <i data-lucide="zap" class="w-4 h-4 text-emerald-500"></i> Philosophy
-                </h3>
-                <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-mono">
-                    Passionate about products with a strong technical foundation. Dedicated to highly available systems, refined design patterns, and operational excellence.
-                </p>
-            </div>
+
 
         </div>
 
@@ -101,13 +96,30 @@
                     <div class="group relative pl-6 border-l border-zinc-300 dark:border-zinc-800 hover:border-emerald-500 transition-colors duration-300">
                         <div class="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600 group-hover:bg-emerald-500 transition-colors duration-300"></div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                            <h4 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">Broadcom</h4>
+                            <a href="https://www.vmware.com/" target="_blank" class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit">
+                                Broadcom <i data-lucide="external-link" class="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
+                            </a>
                             <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Dec 2023 - Present</span>
                         </div>
                         <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3">Software Engineer</div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">Contributed to an on-premises platform installer, supporting key initiatives to enhance system architecture. Played a pivotal role in transitioning from standalone PostgreSQL to PostgreSQL Operator, ensuring minimal disruption to existing services. Actively participated in proof-of-concept (POC) development and contributed to technical design documents.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Developed enterprise on-premises platform architecture, focusing on database infrastructure migrations and technical design.</p>
+                        <ul class="space-y-2 mb-1">
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">System Architecture:</strong> Developed core components for an on-premises platform installer to improve overall system architecture.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Infrastructure Migration:</strong> Executed the transition from standalone PostgreSQL to PostgreSQL Operator with zero downtime for existing services.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Technical Design:</strong> Built proof-of-concept (POC) implementations and authored technical design documents.</span>
+                            </li>
+                        </ul>
                         <!-- Contextual Skills -->
                         <div class="flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">Golang</span>
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">PostgreSQL</span>
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">System Architecture</span>
                         </div>
@@ -117,11 +129,27 @@
                     <div class="group relative pl-6 border-l border-zinc-300 dark:border-zinc-800 hover:border-emerald-500 transition-colors duration-300">
                         <div class="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600 group-hover:bg-emerald-500 transition-colors duration-300"></div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                            <h4 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">VMware</h4>
+                            <a href="https://www.vmware.com/" target="_blank" class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit">
+                                VMware <i data-lucide="external-link" class="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
+                            </a>
                             <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Jul 2022 - Nov 2023</span>
                         </div>
                         <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3">Software Engineer</div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">Developed and optimised core data services for the storage layer, leveraging a diverse tech stack. Primarily utilised Golang and Java, alongside technologies such as AWS services, PostgreSQL, Redis, and Elasticsearch. Designed and implemented high-performance RESTful and GraphQL APIs to support scalable and efficient data operations.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Engineered data services and APIs for the core storage layer within a large-scale cloud environment.</p>
+                        <ul class="space-y-2 mb-1">
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Core Data Services:</strong> Developed scalable data services for the storage layer using Golang and Java.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">API Design:</strong> Designed and implemented RESTful and GraphQL APIs to support efficient data operations.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Cloud Infrastructure:</strong> Maintained resilient backend systems using AWS services, PostgreSQL, Redis, and Elasticsearch.</span>
+                            </li>
+                        </ul>
                         <!-- Contextual Skills -->
                         <div class="flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">Golang</span>
@@ -136,17 +164,32 @@
                     <div class="group relative pl-6 border-l border-zinc-300 dark:border-zinc-800 hover:border-emerald-500 transition-colors duration-300">
                         <div class="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600 group-hover:bg-emerald-500 transition-colors duration-300"></div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                            <h4 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">SumUp</h4>
+                            <a href="https://www.sumup.com/en-us/" target="_blank" class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit">
+                                SumUp <i data-lucide="external-link" class="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
+                            </a>
                             <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Oct 2019 - Jun 2022</span>
                         </div>
                         <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3">Software Developer</div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">Contributed to the SumUp Card initiative within the dynamic Banking tribe, leading key projects and features. Spearheaded the development of a multi-factor authentication (MFA) service and flow, drawing inspiration from Interactive Brokers' approach. Additionally, drove the implementation and integration of Open Banking services.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Developed security and integration features for the SumUp Card, focusing on authentication flows and Open Banking.</p>
+                        <ul class="space-y-2 mb-1">
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">SumUp Card:</strong> Delivered core features and services within the Banking engineering team.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Security Architecture:</strong> Built and deployed a multi-factor authentication (MFA) service and authorization flow.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Open Banking:</strong> Implemented and integrated Open Banking APIs to extend financial capabilities.</span>
+                            </li>
+                        </ul>
                         <!-- Contextual Skills -->
                         <div class="flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">Elixir</span>
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">Golang</span>
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">Java/Kotlin</span>
-                            <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">Open Banking</span>
                         </div>
                     </div>
 
@@ -154,11 +197,27 @@
                     <div class="group relative pl-6 border-l border-zinc-300 dark:border-zinc-800 hover:border-emerald-500 transition-colors duration-300">
                         <div class="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600 group-hover:bg-emerald-500 transition-colors duration-300"></div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                            <h4 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">devolo AG</h4>
+                            <a href="https://www.devolo.global/" target="_blank" class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit">
+                                devolo AG <i data-lucide="external-link" class="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
+                            </a>
                             <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Feb 2018 - Oct 2019</span>
                         </div>
                         <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3">Software Developer</div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">Architected and developed an iOS application enabling Bluetooth-based discovery and control of network devices through RESTful endpoints. Designed and implemented key features, including a robust caching system and offline mode, as well as device state diffing to track available and unavailable devices.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Developed iOS applications for smart home networking, focusing on device state management and Bluetooth integration.</p>
+                        <ul class="space-y-2 mb-1">
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">iOS Application:</strong> Developed an app enabling Bluetooth-based discovery and control of network devices via RESTful endpoints.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Resilient Connectivity:</strong> Built a caching system and offline mode to handle unreliable network states.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">State Management:</strong> Designed diffing algorithms to accurately track available and unavailable network hardware.</span>
+                            </li>
+                        </ul>
                         <!-- Contextual Skills -->
                         <div class="flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">iOS/Swift</span>
@@ -171,11 +230,23 @@
                     <div class="group relative pl-6 border-l border-zinc-300 dark:border-zinc-800 hover:border-emerald-500 transition-colors duration-300">
                         <div class="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600 group-hover:bg-emerald-500 transition-colors duration-300"></div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                            <h4 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">Codemotion Ltd.</h4>
+                            <a href="https://codemotionapps.com/" target="_blank" class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit">
+                                Codemotion Ltd. <i data-lucide="external-link" class="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
+                            </a>
                             <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Feb 2014 - Sep 2016</span>
                         </div>
                         <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3">Co-Founder & Developer</div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">Co-created and developed multiple applications, including a standout iPad vector design app. Tackled the complex challenge of designing a dynamic vector brush with variable width, responsive to the pressure and angle of the Apple Pencil.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Co-founded a product studio and managed the technical development of interactive iOS applications.</p>
+                        <ul class="space-y-2 mb-1">
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Product Development:</strong> Built and shipped multiple applications, including a dedicated iPad vector design tool.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Graphics Engineering:</strong> Designed a dynamic vector brush engine that responds to Apple Pencil pressure and tilt data.</span>
+                            </li>
+                        </ul>
                         <!-- Contextual Skills -->
                         <div class="flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">iOS/Swift</span>
@@ -187,11 +258,23 @@
                     <div class="group relative pl-6 border-l border-transparent hover:border-emerald-500 transition-colors duration-300">
                         <div class="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600 group-hover:bg-emerald-500 transition-colors duration-300"></div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                            <h4 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">Despark</h4>
+                            <a href="https://www.linkedin.com/company/despark/" target="_blank" class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit">
+                                Despark <i data-lucide="external-link" class="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
+                            </a>
                             <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Feb 2012 - Feb 2013</span>
                         </div>
                         <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3">Junior iOS Developer</div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">Contributed to a diverse range of projects, including Cocos2D-based iOS games, as well as information and storefront iOS applications, honing technical skills in mobile app development.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Built and maintained a portfolio of iOS games and consumer-facing applications.</p>
+                        <ul class="space-y-2 mb-1">
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Mobile Development:</strong> Developed information and storefront iOS applications for various clients.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                                <span class="text-emerald-500 mt-1">&bull;</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Game Programming:</strong> Built and shipped multiple iOS games using the Cocos2D engine.</span>
+                            </li>
+                        </ul>
                         <!-- Contextual Skills -->
                         <div class="flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                             <span class="px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700/50 bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-mono text-[11px] transition-colors duration-300">iOS/Swift</span>
@@ -217,23 +300,23 @@
                             </h4>
                             <span class="font-mono text-sm text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">APR 2025 - Present</span>
                         </div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Architecting a highly available, cloud-agnostic B2B2C platform from the ground up. The system handles complex entity discovery, real-time coordination, and multi-party deal flows across a distributed architecture.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Architecting a cloud-agnostic B2B2C platform. The system handles entity discovery, real-time coordination, and multi-party deal flows.</p>
                         <ul class="space-y-2 mb-5">
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Modular Go Backend:</strong> Developed a high-performance backend using Go and pure SQL (pgx) atop PostgreSQL, avoiding ORMs for maximum efficiency and strict data integrity.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Backend:</strong> Developed the backend using Go and pure SQL (pgx) on PostgreSQL, bypassing ORMs to enforce data integrity.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Real-Time Search & Cache:</strong> Integrated Typesense for sub-millisecond catalogue search and Valkey for caching, distributed locking, and real-time pub/sub infrastructure.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Search & Cache:</strong> Integrated Typesense for catalogue search and Valkey for caching, distributed locking, and pub/sub.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Progressive Web App:</strong> Built a reactive, offline-capable SPA using Svelte and SvelteKit, featuring web push notifications and rigorous Content Security Policy defenses.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Frontend:</strong> Built an offline-capable SPA using SvelteKit, featuring web push notifications and strict Content Security Policies.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Cloud-Agnostic Infra:</strong> Designed a fully containerized architecture deployed on Kubernetes, utilizing S3-compatible object storage and pgBackRest for disaster recovery.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Infrastructure:</strong> Deployed a containerized architecture on Kubernetes, utilizing S3-compatible object storage and pgBackRest.</span>
                             </li>
                         </ul>
                         <!-- Contextual Skills -->
@@ -252,24 +335,25 @@
                     <!-- Thoughts -->
                     <div class="group relative">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                            <a href="https://github.com/robbdimitrov/thoughts" target="_blank" class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors w-fit">
+                            <a href="https://github.com/robbdimitrov/thoughts" target="_blank" class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 w-fit">
                                 <i data-lucide="message-square" class="w-6 h-6 text-emerald-500"></i> Thoughts
+                                <i data-lucide="external-link" class="w-5 h-5 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
                             </a>
                             <span class="font-mono text-sm text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Dec 2018 - Present</span>
                         </div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Production-grade, highly available microservices social media application. The platform allows users to create, share, and interact with posts while leveraging a robust, scalable backend architecture.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Microservices-based social media application enabling users to create and interact with posts via a distributed architecture.</p>
                         <ul class="space-y-2 mb-5">
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Polyglot Microservices:</strong> Engineered a modular backend architecture utilizing Go and Rust, leveraging gRPC for high-performance, low-latency internal communication.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Backend:</strong> Built a modular backend using Go and Rust, utilizing gRPC for internal communication.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Cloud-Native & HA Ready:</strong> Fully containerized all stateless services and configured them for High Availability deployments on Kubernetes, complete with automated deployment scripts.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Infrastructure:</strong> Containerized stateless services for Kubernetes deployment, including automated rollout scripts.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Modern Frontend:</strong> Built a responsive, dynamic user interface utilizing Next.js (App Router), React, Tailwind CSS, and DaisyUI.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Frontend:</strong> Built the web interface using Next.js (App Router), React, Tailwind CSS, and DaisyUI.</span>
                             </li>
                         </ul>
                         <!-- Contextual Skills -->
@@ -287,24 +371,25 @@
                     <!-- Pixelgram -->
                     <div class="group relative">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                            <a href="https://github.com/robbdimitrov/pixelgram" target="_blank" class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors w-fit">
+                            <a href="https://github.com/robbdimitrov/pixelgram" target="_blank" class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 w-fit">
                                 <i data-lucide="image" class="w-6 h-6 text-emerald-500"></i> PixelGram
+                                <i data-lucide="external-link" class="w-5 h-5 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"></i>
                             </a>
                             <span class="font-mono text-sm text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0">Nov 2017 - Present</span>
                         </div>
-                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Robust full-stack image-sharing application. The platform provides a seamless user experience for creating, browsing, and interacting with images, powered by a high-performance backend and deployed via Kubernetes.</p>
+                        <p class="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">Full-stack image-sharing application enabling users to browse and interact with images.</p>
                         <ul class="space-y-2 mb-5">
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">High-Performance Backend:</strong> Developed a RESTful API backend from the ground up using Go and the pgx driver for highly efficient database interactions.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Backend:</strong> Developed a RESTful API backend using Go and the pgx driver.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Modern SPA Frontend:</strong> Built a responsive and interactive Single Page Application (SPA) utilizing Angular and TypeScript, styled with Tailwind CSS and DaisyUI.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Frontend:</strong> Built a Single Page Application (SPA) using Angular and TypeScript.</span>
                             </li>
                             <li class="flex items-start gap-3 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                                 <span class="text-emerald-500 mt-1">&bull;</span>
-                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Cloud-Native Deployment:</strong> Fully containerized the application stack using Docker and configured automated deployments to Kubernetes clusters, ensuring portability and scalability.</span>
+                                <span><strong class="text-zinc-900 dark:text-zinc-100 font-semibold">Infrastructure:</strong> Containerized the application stack with Docker and automated deployments to Kubernetes.</span>
                             </li>
                         </ul>
                         <!-- Contextual Skills -->
