@@ -98,18 +98,51 @@ body {
 }
 
 @media print {
+    html { font-size: 12px !important; }
     body, html.dark body { background: #ffffff !important; color: #000000 !important; }
     .bg-grid, .bg-vignette, #theme-toggle { display: none !important; }
     .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
     .spotlight-card::before, .spotlight-card::after { display: none !important; }
-    main { display: block !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    
+    /* Preserve the two-column layout for print */
+    main { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    main > div {
+        display: grid !important;
+        grid-template-columns: 240px 1fr !important;
+        gap: 3rem !important;
+        align-items: start !important;
+    }
+    
+    /* Prevent timeline breaks across pages */
+    .group {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    /* Hide decorative horizontal dividers */
+    .h-px.bg-zinc-200 { display: none !important; }
+
     .lg\:sticky { position: static !important; }
     a { text-decoration: none !important; color: inherit !important; }
     * { -webkit-print-color-adjust: exact !important; color-adjust: exact !important; }
-    .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700, .dark\:text-zinc-300, .dark\:text-zinc-400 { color: #333 !important; }
+    
+    /* Colors and Borders */
+    .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700, .dark\:text-zinc-300, .dark\:text-zinc-400 { color: #444 !important; }
     .text-zinc-900, .dark\:text-zinc-100, .dark\:text-zinc-50 { color: #000 !important; }
-    .border-zinc-300, .dark\:border-zinc-800, .dark\:border-zinc-700\/50 { border-color: #ddd !important; }
-    .rounded-xl, .rounded { border: 1px solid #aaa !important; background: transparent !important; color: #333 !important; }
+    .border-zinc-300, .dark\:border-zinc-800, .dark\:border-zinc-700\/50 { border-color: #ccc !important; }
+    
+    /* Compact the skill pills */
+    .rounded-xl, .rounded { 
+        border: 1px solid #bbb !important; 
+        background: transparent !important; 
+        color: #333 !important; 
+        padding: 0.1rem 0.4rem !important;
+    }
+    
+    /* Connect links - make them less bulky */
+    .px-5.py-3\.5 { padding: 0.25rem 0.5rem !important; }
+    
     i[data-lucide] { color: #555 !important; }
     .bg-zinc-100\/80, .dark\:bg-zinc-800\/50, .bg-zinc-200\/50 { background: transparent !important; }
     .text-emerald-500, .text-emerald-600, .dark\:text-emerald-400 { color: #059669 !important; }
