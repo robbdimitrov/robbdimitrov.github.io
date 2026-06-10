@@ -114,8 +114,13 @@ body {
     .group {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2rem !important;
     }
+    
+    /* Remove timeline border and dots to save space */
+    .pl-6 { padding-left: 0 !important; }
+    .border-l { border-left: none !important; }
+    .group > .absolute { display: none !important; }
     
     /* Hide decorative horizontal dividers */
     .h-px.bg-zinc-200 { display: none !important; }
