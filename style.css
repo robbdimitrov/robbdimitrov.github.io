@@ -96,3 +96,21 @@ body {
     background: rgba(52, 211, 153, 0.2);
     color: inherit;
 }
+
+@media print {
+    body, html.dark body { background: #ffffff !important; color: #000000 !important; }
+    .bg-grid, .bg-vignette, #theme-toggle { display: none !important; }
+    .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+    .spotlight-card::before, .spotlight-card::after { display: none !important; }
+    main { display: block !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    .lg\:sticky { position: static !important; }
+    a { text-decoration: none !important; color: inherit !important; }
+    * { -webkit-print-color-adjust: exact !important; color-adjust: exact !important; }
+    .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700, .dark\:text-zinc-300, .dark\:text-zinc-400 { color: #333 !important; }
+    .text-zinc-900, .dark\:text-zinc-100, .dark\:text-zinc-50 { color: #000 !important; }
+    .border-zinc-300, .dark\:border-zinc-800, .dark\:border-zinc-700\/50 { border-color: #ddd !important; }
+    .rounded-xl, .rounded { border: 1px solid #aaa !important; background: transparent !important; color: #333 !important; }
+    i[data-lucide] { color: #555 !important; }
+    .bg-zinc-100\/80, .dark\:bg-zinc-800\/50, .bg-zinc-200\/50 { background: transparent !important; }
+    .text-emerald-500, .text-emerald-600, .dark\:text-emerald-400 { color: #059669 !important; }
+}
