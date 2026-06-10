@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* Base configuration handled by Tailwind, injecting custom effects here */
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Engineering-grade subtle dot grid */
+.bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background-size: 32px 32px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+:root:not(.dark) .bg-grid {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+/* Subtle vignette to focus the center */
+.bg-vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 30%, rgba(9, 9, 11, 0.8) 100%);
+}
+
+:root:not(.dark) .bg-vignette {
+    background: radial-gradient(circle at center, transparent 30%, rgba(244, 244, 245, 0.9) 100%);
+}
+
+/* High-end Spotlight Border Effect */
+.spotlight-card {
+    position: relative;
+    border-radius: 1rem;
+    background-color: rgba(24, 24, 27, 0.5); /* zinc-900 with transparency */
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+:root:not(.dark) .spotlight-card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.spotlight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+:root:not(.dark) .spotlight-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+/* The magic glowing border */
+.spotlight-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 1px; /* border thickness */
+    background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(52, 211, 153, 0.5), transparent 40%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+:root:not(.dark) .spotlight-card::after {
+    background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(16, 185, 129, 0.4), transparent 40%);
+}
+
+.spotlight-card:hover::after {
+    opacity: 1;
+}
+
+/* Monospace text selection color */
+::selection {
+    background: rgba(52, 211, 153, 0.2);
+    color: inherit;
+}
