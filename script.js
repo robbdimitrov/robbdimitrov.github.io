@@ -4,25 +4,50 @@ lucide.createIcons();
 // Theme Toggle Logic
 const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
+const iconLight = document.getElementById('icon-light');
+const iconDark = document.getElementById('icon-dark');
+const iconSystem = document.getElementById('icon-system');
 
-// Check local storage or system preference
-const savedTheme = localStorage.getItem('cv-theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+let currentTheme = localStorage.getItem('cv-theme') || 'system';
 
-if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-    html.classList.remove('dark');
-} else {
-    html.classList.add('dark');
+function updateTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (currentTheme === 'dark' || (currentTheme === 'system' && prefersDark)) {
+        html.classList.add('dark');
+    } else {
+        html.classList.remove('dark');
+    }
+
+    iconLight.classList.toggle('hidden', currentTheme !== 'light');
+    iconDark.classList.toggle('hidden', currentTheme !== 'dark');
+    iconSystem.classList.toggle('hidden', currentTheme !== 'system');
 }
 
-themeToggle.addEventListener('click', () => {
-    if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        localStorage.setItem('cv-theme', 'light');
-    } else {
-        html.classList.add('dark');
-        localStorage.setItem('cv-theme', 'dark');
+updateTheme();
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (currentTheme === 'system') {
+        updateTheme();
     }
+});
+
+themeToggle.addEventListener('click', () => {
+    if (currentTheme === 'system') {
+        currentTheme = 'light';
+    } else if (currentTheme === 'light') {
+        currentTheme = 'dark';
+    } else {
+        currentTheme = 'system';
+    }
+    
+    if (currentTheme === 'system') {
+        localStorage.removeItem('cv-theme');
+    } else {
+        localStorage.setItem('cv-theme', currentTheme);
+    }
+    updateTheme();
 });
 
 // Mouse Move Glow Effect for Bento Cards

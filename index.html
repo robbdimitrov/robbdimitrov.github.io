@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +33,14 @@
     </script>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        const theme = localStorage.getItem('cv-theme') || 'system';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
 <body class="bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans antialiased selection:bg-emerald-500/30">
     
@@ -41,9 +49,10 @@
     <div class="bg-vignette"></div>
 
     <!-- Theme Toggle -->
-    <button id="theme-toggle" class="fixed top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-200/50 dark:bg-zinc-800/50 backdrop-blur border border-zinc-300/50 dark:border-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-50 group">
-        <i data-lucide="sun" class="hidden dark:block w-4 h-4 text-zinc-400 group-hover:text-zinc-100 transition-colors"></i>
-        <i data-lucide="moon" class="block dark:hidden w-4 h-4 text-zinc-600 group-hover:text-zinc-900 transition-colors"></i>
+    <button id="theme-toggle" class="fixed top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-200/50 dark:bg-zinc-800/50 backdrop-blur border border-zinc-300/50 dark:border-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-50 group print:hidden">
+        <i data-lucide="sun" id="icon-light" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"></i>
+        <i data-lucide="moon" id="icon-dark" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"></i>
+        <i data-lucide="monitor" id="icon-system" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"></i>
     </button>
 
     <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto w-full p-6 lg:p-12 my-8 lg:my-auto">
