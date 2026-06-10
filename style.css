@@ -104,13 +104,10 @@ body {
     .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
     .spotlight-card::before, .spotlight-card::after { display: none !important; }
     
-    /* Preserve the two-column layout for print */
+    /* Single column layout for print */
     main { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
     main > div {
-        display: grid !important;
-        grid-template-columns: 240px 1fr !important;
-        gap: 3rem !important;
-        align-items: start !important;
+        display: block !important;
     }
     
     /* Prevent timeline breaks across pages */
