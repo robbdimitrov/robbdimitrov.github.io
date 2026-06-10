@@ -1,4 +1,4 @@
-# Robert Dimitrov - CV
+# Robert Dimitrov
 
 Source code for my web-based interactive curriculum vitae.
 
@@ -12,7 +12,9 @@ Source code for my web-based interactive curriculum vitae.
 
 ## Running Locally
 
-Since the project uses entirely vanilla web technologies without any build steps or external assets, you can view it locally simply by opening `index.html` in any modern web browser.
+1. Install dependencies: `npm install`
+2. Build the CSS: `npm run build`
+3. Open `src/index.html` in any modern web browser to view the project locally.
 
 ## License
 
