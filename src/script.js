@@ -76,6 +76,7 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.spotlight-card').forEach(card => {
         let pending = null;
         let frame = 0;
+        let resetTimer = 0;
 
         const flush = () => {
             frame = 0;
@@ -87,41 +88,62 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         };
 
         card.addEventListener('mousemove', e => {
+            if (resetTimer) { clearTimeout(resetTimer); resetTimer = 0; }
             pending = { x: e.clientX, y: e.clientY };
             if (!frame) frame = requestAnimationFrame(flush);
         }, { passive: true });
 
-        // Reset on mouse leave so glow doesn't get stuck on the edge.
         card.addEventListener('mouseleave', () => {
             if (frame) { cancelAnimationFrame(frame); frame = 0; }
             pending = null;
-            card.style.setProperty('--mouse-x', `-1000px`);
-            card.style.setProperty('--mouse-y', `-1000px`);
+            // The ::after glow fades out via its opacity transition; let it fade
+            // in place and only park the gradient off-card once that's done, so
+            // the fade isn't cut short (and a re-enter cancels the reset).
+            resetTimer = setTimeout(() => {
+                card.style.setProperty('--mouse-x', `-1000px`);
+                card.style.setProperty('--mouse-y', `-1000px`);
+            }, 300);
         });
     });
 }
 
-// Touch devices have no hover, so the emerald highlight and external-link icon
-// that hover reveals on desktop are otherwise unreachable. Surface the same
-// affordance on tap: tapping a job/project card's body reveals the highlight
-// (and its link); tapping elsewhere clears it. The title link itself navigates
-// normally on a single tap. Cards without a link are skipped.
+// Touch devices have no hover, so the emerald flourish that follows the cursor
+// on desktop follows scroll instead: the job/project card currently centered in
+// the viewport is marked `.active`. (Link icons are shown permanently via CSS.)
 if (window.matchMedia('(hover: none)').matches) {
-    const cards = [...document.querySelectorAll('.timeline-item, .project-item')]
-        .filter(card => card.querySelector('a.timeline-title, a.project-title'));
+    const cards = [...document.querySelectorAll('.timeline-item, .project-item')];
+    let active = null;
+    let ticking = false;
 
-    document.addEventListener('click', e => {
-        const card = e.target.closest('.timeline-item, .project-item');
-
-        // Clear the highlight on any card that isn't the one being tapped.
-        cards.forEach(c => { if (c !== card) c.classList.remove('tapped'); });
-        if (!cards.includes(card)) return;
-
-        // Tapping the card body toggles the highlight; let links navigate.
-        if (!e.target.closest('a')) {
-            card.classList.toggle('tapped');
+    const update = () => {
+        ticking = false;
+        const mid = window.innerHeight / 2;
+        let best = null;
+        let bestDist = Infinity;
+        for (const card of cards) {
+            const rect = card.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) continue;
+            // A card spanning the viewport midline wins outright; otherwise the
+            // one whose nearest edge sits closest to the midline takes it. This
+            // keeps exactly one card active, with no flicker in the gaps.
+            if (rect.top <= mid && rect.bottom >= mid) { best = card; break; }
+            const dist = Math.min(Math.abs(rect.top - mid), Math.abs(rect.bottom - mid));
+            if (dist < bestDist) { bestDist = dist; best = card; }
         }
-    });
+        if (best !== active) {
+            active?.classList.remove('active');
+            best?.classList.add('active');
+            active = best;
+        }
+    };
+
+    // Coalesce scroll/resize into one rAF-driven measurement per frame.
+    const onScroll = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
 }
 
 // Anti-Scraping Email Obfuscation
