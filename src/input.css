@@ -17,7 +17,7 @@
         @apply text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit;
     }
     .timeline-date {
-        @apply font-mono text-xs text-zinc-500 uppercase tracking-widest mt-1 sm:mt-0;
+        @apply font-mono text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mt-1 sm:mt-0;
     }
     .timeline-role {
         @apply font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-3;
@@ -26,7 +26,7 @@
         @apply text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4;
     }
     .timeline-skills {
-        @apply flex flex-wrap gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300;
+        @apply flex flex-wrap gap-2 mt-4;
     }
     
     .project-item {
@@ -39,7 +39,7 @@
         @apply text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1.5 w-fit;
     }
     .project-skills {
-        @apply flex flex-wrap gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300;
+        @apply flex flex-wrap gap-2;
     }
 
     .bullet-list {
@@ -66,7 +66,7 @@
         @apply flex items-center gap-3 px-5 py-3.5 rounded-xl bg-zinc-100/80 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-colors;
     }
     .social-icon {
-        @apply text-zinc-500 group-hover:text-emerald-500 transition-colors;
+        @apply text-zinc-600 dark:text-zinc-400 group-hover:text-emerald-500 transition-colors;
     }
     .social-text {
         @apply font-mono text-base text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors;
@@ -77,10 +77,25 @@
     }
 }
 
-/* Base configuration handled by Tailwind, injecting custom effects here */
+/* Keep the browser canvas in sync with the class-based theme. */
+html {
+    background-color: #f4f4f5;
+    color-scheme: light;
+}
+
+html.dark {
+    background-color: #09090b;
+    color-scheme: dark;
+}
 
 body {
+    display: flow-root;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: inherit;
     transition: background-color 0.3s ease, color 0.3s ease;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 /* Engineering-grade subtle dot grid */
@@ -134,13 +149,15 @@ body {
     border-color: rgba(0, 0, 0, 0.08);
 }
 
-.spotlight-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-}
+@media (hover: hover) and (pointer: fine) {
+    .spotlight-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    }
 
-:root:not(.dark) .spotlight-card:hover {
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    :root:not(.dark) .spotlight-card:hover {
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    }
 }
 
 /* The magic glowing border */
@@ -164,8 +181,10 @@ body {
     background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(16, 185, 129, 0.4), transparent 40%);
 }
 
-.spotlight-card:hover::after {
-    opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+    .spotlight-card:hover::after {
+        opacity: 1;
+    }
 }
 
 /* Monospace text selection color */
@@ -174,8 +193,28 @@ body {
     color: inherit;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .spotlight-card,
+    .spotlight-card::after,
+    .timeline-item,
+    .timeline-dot,
+    .timeline-title,
+    .skill-badge,
+    .social-link,
+    .social-icon,
+    .social-text,
+    .link-icon {
+        transition: none !important;
+    }
+
+    .spotlight-card:hover {
+        transform: none;
+    }
+}
+
 @media print {
-    html { font-size: 12px !important; }
+    html { background: #ffffff !important; color-scheme: light; font-size: 12px !important; }
     body, html.dark body { background: #ffffff !important; color: #000000 !important; }
     .bg-grid, .bg-vignette, #theme-toggle { display: none !important; }
     .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
@@ -222,7 +261,7 @@ body {
     /* Connect links - make them less bulky */
     .social-link { padding: 0.25rem 0.5rem !important; }
     
-    i[data-lucide], .social-icon, .link-icon { color: #555 !important; }
+    .social-icon, .link-icon { color: #555 !important; }
     .bg-zinc-100\/80, .dark\:bg-zinc-800\/50, .bg-zinc-200\/50 { background: transparent !important; }
     .text-emerald-500, .text-emerald-600, .dark\:text-emerald-400 { color: #059669 !important; }
 }
