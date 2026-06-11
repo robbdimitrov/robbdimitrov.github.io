@@ -249,17 +249,23 @@ body {
     to { opacity: 1; }
 }
 
-/* Touch devices have no hover, so two desktop affordances are adapted here:
-   (1) link icons can't be hover-revealed, so they're shown permanently;
-   (2) the emerald flourish that follows the cursor on desktop follows scroll
-   instead — script.js marks the card centered in the viewport `.active`.
-   The base transitions on these elements make the highlight glide between cards
-   as you scroll. */
-@media (hover: none) {
+/* The link icon is hover-revealed only on precise-hover devices (the rule in
+   @media (hover: hover) and (pointer: fine) above). Everywhere else it must be
+   shown permanently, otherwise it's an affordance with no way to surface it —
+   including hover-capable-but-coarse pointers (e.g. smart TVs) that match
+   neither the reveal query nor (hover: none). A media-query list covers them. */
+@media (hover: none), (pointer: coarse) {
     .link-icon {
         opacity: 1;
         margin-left: 0;
     }
+}
+
+/* The emerald flourish that follows the cursor on desktop follows scroll on
+   touch instead: script.js (gated to hover:none, matching this query) marks the
+   card centered in the viewport `.active`. Base transitions on these elements
+   make the highlight glide between cards as you scroll. */
+@media (hover: none) {
     .timeline-item.active {
         border-color: #10b981; /* emerald-500 */
     }
@@ -297,6 +303,7 @@ body {
     .timeline-item,
     .timeline-dot,
     .timeline-title,
+    .project-title,
     .skill-badge,
     .social-link,
     .social-icon,
