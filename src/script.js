@@ -76,34 +76,34 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.spotlight-card').forEach(card => {
         let pending = null;
         let frame = 0;
-        let resetTimer = 0;
+
+        const move = (x, y) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${x - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${y - rect.top}px`);
+        };
 
         const flush = () => {
             frame = 0;
             if (!pending) return;
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty('--mouse-x', `${pending.x - rect.left}px`);
-            card.style.setProperty('--mouse-y', `${pending.y - rect.top}px`);
+            move(pending.x, pending.y);
             pending = null;
         };
 
+        // Position the glow at the entry point up front so it fades in where the
+        // cursor actually is, not at a stale spot from a previous hover.
+        card.addEventListener('mouseenter', e => move(e.clientX, e.clientY), { passive: true });
+
         card.addEventListener('mousemove', e => {
-            if (resetTimer) { clearTimeout(resetTimer); resetTimer = 0; }
             pending = { x: e.clientX, y: e.clientY };
             if (!frame) frame = requestAnimationFrame(flush);
         }, { passive: true });
 
+        // No position reset on leave: the CSS opacity transition fades the glow
+        // out in place. Just drop any queued position write.
         card.addEventListener('mouseleave', () => {
             if (frame) { cancelAnimationFrame(frame); frame = 0; }
-            if (resetTimer) clearTimeout(resetTimer);
             pending = null;
-            // The ::after glow fades out via its opacity transition; let it fade
-            // in place and only park the gradient off-card once that's done, so
-            // the fade isn't cut short (and a re-enter cancels the reset).
-            resetTimer = setTimeout(() => {
-                card.style.setProperty('--mouse-x', `-1000px`);
-                card.style.setProperty('--mouse-y', `-1000px`);
-            }, 300);
         });
     });
 }

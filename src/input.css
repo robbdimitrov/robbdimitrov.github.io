@@ -198,7 +198,9 @@ body {
     pointer-events: none;
     z-index: 10;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    /* Graceful fade-out when the cursor leaves; the snappier fade-in is set on
+       :hover below (asymmetric, so the glow appears promptly but lingers out). */
+    transition: opacity 0.5s ease;
 }
 
 :root:not(.dark) .spotlight-card::after {
@@ -208,6 +210,7 @@ body {
 @media (hover: hover) and (pointer: fine) {
     .spotlight-card:hover::after {
         opacity: 1;
+        transition: opacity 0.15s ease;
     }
 }
 
