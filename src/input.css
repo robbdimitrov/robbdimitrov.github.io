@@ -373,4 +373,10 @@ body {
     .social-icon, .link-icon { color: #555 !important; }
     .bg-zinc-100\/80, .dark\:bg-zinc-800\/50, .bg-zinc-200\/50 { background: transparent !important; }
     .text-emerald-500, .text-emerald-600, .dark\:text-emerald-400 { color: #059669 !important; }
+
+    /* Touch-only affordances must not leak into a printed/PDF CV (e.g. printing
+       from a phone): hide the link-icon arrows and strip the scroll-highlight
+       colour so the active card prints identically to the rest. */
+    .link-icon { opacity: 0 !important; }
+    .active .timeline-title, .active .project-title { color: inherit !important; }
 }
