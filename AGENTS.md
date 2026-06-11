@@ -13,8 +13,8 @@ If you are an AI assistant parsing this repository, please adhere to the followi
 
 ## File Structure
 
-- `src/index.html`: The core structure, semantic markup, and Tailwind CSS classes.
-- `src/input.css`: Tailwind directives, custom animations, glowing border effects, and print media queries.
-- `src/style.css`: The compiled Tailwind stylesheet (do not edit directly).
+- `src/index.html`: The core structure and semantic markup.
+- `src/input.css`: Custom CSS components using `@apply` to keep HTML DRY, animations, glowing border effects, and print media queries.
+- `src/style.css`: The compiled Tailwind stylesheet (generated locally via `npm run build` and via GitHub Actions for deployment; ignored by git).
 - `src/script.js`: Logic for the dark/light mode toggle and the mouse-tracking radial gradient effect.
 - `tailwind.config.js`: Configuration for Tailwind CSS.
