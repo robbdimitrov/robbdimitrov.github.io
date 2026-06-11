@@ -95,6 +95,7 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 
         card.addEventListener('mouseleave', () => {
             if (frame) { cancelAnimationFrame(frame); frame = 0; }
+            if (resetTimer) clearTimeout(resetTimer);
             pending = null;
             // The ::after glow fades out via its opacity transition; let it fade
             // in place and only park the gradient off-card once that's done, so
@@ -117,12 +118,13 @@ if (window.matchMedia('(hover: none)').matches) {
 
     const update = () => {
         ticking = false;
-        const mid = window.innerHeight / 2;
+        const vh = window.innerHeight;
+        const mid = vh / 2;
         let best = null;
         let bestDist = Infinity;
         for (const card of cards) {
             const rect = card.getBoundingClientRect();
-            if (rect.bottom < 0 || rect.top > window.innerHeight) continue;
+            if (rect.bottom < 0 || rect.top > vh) continue;
             // A card spanning the viewport midline wins outright; otherwise the
             // one whose nearest edge sits closest to the midline takes it. This
             // keeps exactly one card active, with no flicker in the gaps.
