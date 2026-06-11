@@ -211,6 +211,41 @@ body {
     }
 }
 
+/* Staggered fade-and-rise entrance on first paint. `backwards` fill keeps each
+   element hidden until its delay elapses. Disabled for reduced-motion and print. */
+@keyframes intro-rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .spotlight-card {
+        animation: intro-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+    /* Stagger by DOM order: profile (left column), then experience, projects. */
+    main > div:first-child .spotlight-card {
+        animation-delay: 0.08s;
+    }
+    main > div:last-child .spotlight-card:nth-of-type(1) {
+        animation-delay: 0.22s;
+    }
+    main > div:last-child .spotlight-card:nth-of-type(2) {
+        animation-delay: 0.36s;
+    }
+
+    .bg-ambient {
+        animation: intro-fade 1.1s ease-out backwards;
+    }
+    #theme-toggle {
+        animation: intro-fade 0.7s ease-out 0.5s backwards;
+    }
+}
+
+@keyframes intro-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* Monospace text selection color */
 ::selection {
     background: rgba(52, 211, 153, 0.2);
@@ -252,7 +287,8 @@ body {
     html { background: #ffffff !important; color-scheme: light; font-size: 12px !important; }
     body, html.dark body { background: #ffffff !important; color: #000000 !important; }
     .bg-ambient, #theme-toggle { display: none !important; }
-    .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+    /* animation: none — backwards fill would otherwise leave cards blank in print. */
+    .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; animation: none !important; }
     .spotlight-card::after { display: none !important; }
     
     /* Single column layout for print */
