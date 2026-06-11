@@ -101,6 +101,29 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     });
 }
 
+// Touch devices have no hover, so the emerald highlight and external-link icon
+// that hover reveals on desktop are otherwise unreachable. Surface the same
+// affordance on tap: tapping a job/project card's body reveals the highlight
+// (and its link); tapping elsewhere clears it. The title link itself navigates
+// normally on a single tap. Cards without a link are skipped.
+if (window.matchMedia('(hover: none)').matches) {
+    const cards = [...document.querySelectorAll('.timeline-item, .project-item')]
+        .filter(card => card.querySelector('a.timeline-title, a.project-title'));
+
+    document.addEventListener('click', e => {
+        const card = e.target.closest('.timeline-item, .project-item');
+
+        // Clear the highlight on any card that isn't the one being tapped.
+        cards.forEach(c => { if (c !== card) c.classList.remove('tapped'); });
+        if (!cards.includes(card)) return;
+
+        // Tapping the card body toggles the highlight; let links navigate.
+        if (!e.target.closest('a')) {
+            card.classList.toggle('tapped');
+        }
+    });
+}
+
 // Anti-Scraping Email Obfuscation
 setTimeout(() => {
     // Construct email dynamically to hide from basic HTML scrapers
