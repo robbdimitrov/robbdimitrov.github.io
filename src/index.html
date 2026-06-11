@@ -14,11 +14,10 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#f4f4f5">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Fonts are self-hosted via @font-face in style.css; preload the latin
+         subsets used on first paint so they fetch in parallel with the CSS. -->
+    <link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
     <script>
         let theme = 'system';
@@ -40,12 +39,18 @@
 </head>
 <body class="bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans antialiased selection:bg-emerald-500/30">
     
-    <!-- Ambient Backgrounds -->
-    <div class="bg-grid"></div>
-    <div class="bg-vignette"></div>
+    <!-- SVG sprite: the external-link icon, referenced via <use> below. -->
+    <svg width="0" height="0" class="hidden" aria-hidden="true">
+        <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        </symbol>
+    </svg>
+
+    <!-- Ambient Background (dot grid + vignette) -->
+    <div class="bg-ambient"></div>
 
     <!-- Theme Toggle -->
-    <button id="theme-toggle" type="button" aria-label="Change color theme" class="fixed top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-200/50 dark:bg-zinc-800/50 backdrop-blur border border-zinc-300/50 dark:border-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-50 group print:hidden">
+    <button id="theme-toggle" type="button" aria-label="Change color theme" class="fixed top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-200/90 dark:bg-zinc-800/90 border border-zinc-300/50 dark:border-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-50 group print:hidden">
         <svg id="icon-light" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.42"></path></svg>
         <svg id="icon-dark" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
         <svg id="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
@@ -119,7 +124,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
                             <a href="https://www.broadcom.com/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                Broadcom <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                Broadcom <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Dec 2023 - Present</span>
                         </div>
@@ -139,7 +144,6 @@
                                 <span><strong class="bullet-label">Technical Design:</strong> Built proof-of-concept (POC) implementations and co-authored technical design documents.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="timeline-skills">
                             <span class="skill-badge">Go</span>
                             <span class="skill-badge">PostgreSQL</span>
@@ -153,7 +157,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
                             <a href="https://www.vmware.com/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                VMware <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                VMware <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Jul 2022 - Nov 2023</span>
                         </div>
@@ -173,7 +177,6 @@
                                 <span><strong class="bullet-label">Cloud Infrastructure:</strong> Maintained resilient backend systems using AWS services, PostgreSQL, Redis, and Elasticsearch.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="timeline-skills">
                             <span class="skill-badge">Go</span>
                             <span class="skill-badge">Java</span>
@@ -188,7 +191,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
                             <a href="https://www.sumup.com/en-us/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                SumUp <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                SumUp <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Oct 2019 - Jun 2022</span>
                         </div>
@@ -208,7 +211,6 @@
                                 <span><strong class="bullet-label">Open Banking:</strong> Implemented and integrated Open Banking APIs to extend financial capabilities.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="timeline-skills">
                             <span class="skill-badge">Elixir</span>
                             <span class="skill-badge">Go</span>
@@ -221,7 +223,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
                             <a href="https://www.devolo.global/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                devolo AG <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                devolo AG <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Feb 2018 - Oct 2019</span>
                         </div>
@@ -241,7 +243,6 @@
                                 <span><strong class="bullet-label">State Management:</strong> Designed diffing algorithms to accurately track available and unavailable network hardware.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="timeline-skills">
                             <span class="skill-badge">iOS/Swift</span>
                             <span class="skill-badge">Bluetooth</span>
@@ -254,7 +255,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
                             <a href="https://codemotionapps.com/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                Codemotion Ltd. <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                Codemotion Ltd. <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Feb 2014 - Sep 2016</span>
                         </div>
@@ -270,7 +271,6 @@
                                 <span><strong class="bullet-label">Graphics Engineering:</strong> Designed a dynamic vector brush engine that responds to Apple Pencil pressure and tilt data.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="timeline-skills">
                             <span class="skill-badge">iOS/Swift</span>
                             <span class="skill-badge">CoreGraphics</span>
@@ -282,7 +282,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
                             <a href="https://www.linkedin.com/company/despark/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                Despark <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                Despark <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Feb 2012 - Feb 2013</span>
                         </div>
@@ -298,7 +298,6 @@
                                 <span><strong class="bullet-label">Game Programming:</strong> Built and shipped multiple iOS games using the Cocos2D engine.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="timeline-skills">
                             <span class="skill-badge">iOS/Objective-C</span>
                             <span class="skill-badge">Cocos2D</span>
@@ -342,7 +341,6 @@
                                 <span><strong class="bullet-label">Infrastructure:</strong> Deployed a containerized architecture on Kubernetes, utilizing S3-compatible object storage and pgBackRest.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="project-skills">
                             <span class="skill-badge">SvelteKit</span>
                             <span class="skill-badge">Go</span>
@@ -359,7 +357,7 @@
                     <div class="group project-item">
                         <div class="project-title-row">
                             <a href="https://github.com/robbdimitrov/thoughts" target="_blank" rel="noopener noreferrer" class="project-title">
-                                Thoughts <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                Thoughts <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Dec 2018 - Present</span>
                         </div>
@@ -378,7 +376,6 @@
                                 <span><strong class="bullet-label">Frontend:</strong> Built the web interface using Next.js (App Router), React, Tailwind CSS, and DaisyUI.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="project-skills">
                             <span class="skill-badge">React/Next.js</span>
                             <span class="skill-badge">Go</span>
@@ -394,7 +391,7 @@
                     <div class="group project-item">
                         <div class="project-title-row">
                             <a href="https://github.com/robbdimitrov/pixelgram" target="_blank" rel="noopener noreferrer" class="project-title">
-                                PixelGram <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                                PixelGram <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
                             </a>
                             <span class="timeline-date">Nov 2017 - Present</span>
                         </div>
@@ -413,7 +410,6 @@
                                 <span><strong class="bullet-label">Infrastructure:</strong> Containerized the application stack with Docker and automated deployments to Kubernetes.</span>
                             </li>
                         </ul>
-                        <!-- Contextual Skills -->
                         <div class="project-skills">
                             <span class="skill-badge">Angular</span>
                             <span class="skill-badge">Go</span>

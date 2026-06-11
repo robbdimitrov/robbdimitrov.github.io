@@ -70,23 +70,36 @@ themeToggle.addEventListener('click', () => {
     updateTheme();
 });
 
-// Mouse Move Glow Effect for Bento Cards
-document.querySelectorAll('.spotlight-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+// Mouse-move glow effect. Hover-capable devices only; pointer updates are
+// coalesced into one rAF-driven style write per frame to avoid layout thrash.
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+        let pending = null;
+        let frame = 0;
+
+        const flush = () => {
+            frame = 0;
+            if (!pending) return;
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${pending.x - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${pending.y - rect.top}px`);
+            pending = null;
+        };
+
+        card.addEventListener('mousemove', e => {
+            pending = { x: e.clientX, y: e.clientY };
+            if (!frame) frame = requestAnimationFrame(flush);
+        }, { passive: true });
+
+        // Reset on mouse leave so glow doesn't get stuck on the edge.
+        card.addEventListener('mouseleave', () => {
+            if (frame) { cancelAnimationFrame(frame); frame = 0; }
+            pending = null;
+            card.style.setProperty('--mouse-x', `-1000px`);
+            card.style.setProperty('--mouse-y', `-1000px`);
+        });
     });
-    
-    // Reset on mouse leave so glow doesn't get stuck on the edge
-    card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--mouse-x', `-1000px`);
-        card.style.setProperty('--mouse-y', `-1000px`);
-    });
-});
+}
 
 // Anti-Scraping Email Obfuscation
 setTimeout(() => {

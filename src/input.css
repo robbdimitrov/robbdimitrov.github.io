@@ -1,3 +1,38 @@
+/* Self-hosted fonts (same files Google serves) avoid a render-blocking
+   third-party request. Outfit is variable, so one face covers 400/600/700. */
+@font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url(fonts/outfit-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url(fonts/outfit-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/jetbrains-mono-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/jetbrains-mono-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -98,8 +133,9 @@ body {
     padding-right: env(safe-area-inset-right);
 }
 
-/* Engineering-grade subtle dot grid */
-.bg-grid {
+/* Ambient background: dot grid with a vignette on top (listed first so it
+   paints above), as one fixed layer instead of two. */
+.bg-ambient {
     position: fixed;
     top: 0;
     left: 0;
@@ -107,45 +143,33 @@ body {
     height: 100vh;
     z-index: -1;
     pointer-events: none;
-    background-size: 32px 32px;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-image:
+        radial-gradient(circle at center, transparent 30%, rgba(9, 9, 11, 0.8) 100%),
+        radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px;
 }
 
-:root:not(.dark) .bg-grid {
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+:root:not(.dark) .bg-ambient {
+    background-image:
+        radial-gradient(circle at center, transparent 30%, rgba(244, 244, 245, 0.9) 100%),
+        radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
 }
 
-/* Subtle vignette to focus the center */
-.bg-vignette {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(circle at center, transparent 30%, rgba(9, 9, 11, 0.8) 100%);
-}
-
-:root:not(.dark) .bg-vignette {
-    background: radial-gradient(circle at center, transparent 30%, rgba(244, 244, 245, 0.9) 100%);
-}
-
-/* High-end Spotlight Border Effect */
+/* Spotlight card */
 .spotlight-card {
     position: relative;
     border-radius: 1rem;
-    background-color: rgba(24, 24, 27, 0.5); /* zinc-900 with transparency */
+    /* Near-opaque fill mimics frosted glass without the scroll-jank cost of
+       backdrop-filter: blur(). */
+    background-color: rgba(20, 20, 23, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     overflow: hidden;
     isolation: isolate;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
 }
 
 :root:not(.dark) .spotlight-card {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.85);
     border-color: rgba(0, 0, 0, 0.08);
 }
 
@@ -160,13 +184,13 @@ body {
     }
 }
 
-/* The magic glowing border */
+/* Glowing border that follows the cursor */
 .spotlight-card::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: 1rem;
-    padding: 1px; /* border thickness */
+    padding: 1px;
     background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(52, 211, 153, 0.5), transparent 40%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -213,12 +237,23 @@ body {
     }
 }
 
+/* Sharpen the otherwise near-invisible card outline for users who request
+   more contrast. No effect on the default appearance. */
+@media (prefers-contrast: more) {
+    .spotlight-card {
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+    :root:not(.dark) .spotlight-card {
+        border-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
 @media print {
     html { background: #ffffff !important; color-scheme: light; font-size: 12px !important; }
     body, html.dark body { background: #ffffff !important; color: #000000 !important; }
-    .bg-grid, .bg-vignette, #theme-toggle { display: none !important; }
+    .bg-ambient, #theme-toggle { display: none !important; }
     .spotlight-card { border: none !important; background: transparent !important; padding: 0 !important; box-shadow: none !important; }
-    .spotlight-card::before, .spotlight-card::after { display: none !important; }
+    .spotlight-card::after { display: none !important; }
     
     /* Single column layout for print */
     main { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
