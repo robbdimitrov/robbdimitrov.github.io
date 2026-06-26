@@ -262,10 +262,14 @@ if (sidebar) {
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => {
+    
+    // Use ResizeObserver for bulletproof dimension tracking (handles late font loads, etc.)
+    const ro = new ResizeObserver(() => {
         updateDimensions();
         updatePosition(true);
-    }, { passive: true });
+    });
+    ro.observe(main);
+    ro.observe(sidebar);
     
     // Trigger once on load
     updateDimensions();
