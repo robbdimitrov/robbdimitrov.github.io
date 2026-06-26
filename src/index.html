@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -7,7 +8,8 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Open Graph / Social Meta Tags -->
     <meta property="og:title" content="Robert Dimitrov | Software Engineer">
-    <meta property="og:description" content="Software engineer with 14+ years of experience building distributed systems and full-stack applications.">
+    <meta property="og:description"
+        content="Software engineer with 14+ years of experience building distributed systems and full-stack applications.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://robbdimitrov.github.io/">
     <meta name="twitter:card" content="summary">
@@ -37,11 +39,14 @@
         document.querySelector('meta[name="theme-color"]').content = isDark ? '#09090b' : '#f4f4f5';
     </script>
 </head>
-<body class="bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans antialiased selection:bg-emerald-500/30">
-    
+
+<body
+    class="bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans antialiased selection:bg-emerald-500/30">
+
     <!-- SVG sprite: the external-link icon, referenced via <use> below. -->
     <svg width="0" height="0" class="hidden" aria-hidden="true">
-        <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
         </symbol>
     </svg>
@@ -50,30 +55,55 @@
     <div class="bg-ambient"></div>
 
     <!-- Theme Toggle -->
-    <button id="theme-toggle" type="button" aria-label="Change color theme" class="fixed top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-200/90 dark:bg-zinc-800/90 border border-zinc-300/50 dark:border-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-50 group print:hidden">
-        <svg id="icon-light" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.42"></path></svg>
-        <svg id="icon-dark" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-        <svg id="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+    <button id="theme-toggle" type="button" aria-label="Change color theme"
+        class="fixed top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-200/90 dark:bg-zinc-800/90 border border-zinc-300/50 dark:border-zinc-700/50 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-50 group print:hidden">
+        <svg id="icon-light" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"
+            class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.42">
+            </path>
+        </svg>
+        <svg id="icon-dark" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"
+            class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+        <svg id="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"
+            class="hidden w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+            <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+            <path d="M8 21h8M12 17v4"></path>
+        </svg>
     </button>
 
     <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto w-full p-6 lg:p-12 my-8 lg:my-auto">
-        
+
         <!-- Left Column -->
-        <div class="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-12 h-fit">
-            
+        <div class="lg:col-span-4 flex flex-col gap-6 lg:[@media(min-height:800px)]:sticky lg:[@media(min-height:800px)]:top-12 h-fit"
+            id="profile-column">
+
             <!-- Profile Card -->
             <div class="spotlight-card p-8 lg:p-10 flex flex-col h-fit">
                 <div class="mb-4">
-                    <h1 class="text-6xl sm:text-7xl lg:text-[clamp(3rem,9.375vw_-_3rem,4.5rem)] xl:text-7xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-[1.1] mb-6">
+                    <h1
+                        class="text-6xl sm:text-7xl lg:text-[clamp(3rem,9.375vw_-_3rem,4.5rem)] xl:text-7xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-[1.1] mb-6">
                         Robert<span class="hidden print:inline"> </span><br class="print:hidden" />Dimitrov
                     </h1>
                     <div class="flex flex-col gap-1.5 mt-4">
                         <h2 class="text-xl font-mono text-emerald-600 dark:text-emerald-400">Software Engineer</h2>
-                        <span class="flex items-center gap-2 font-mono text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mt-1">
-                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Sofia, Bulgaria
+                        <span
+                            class="flex items-center gap-2 font-mono text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mt-1">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg> Sofia, Bulgaria
                         </span>
                         <!-- Print-only links -->
-                        <div class="hidden print:flex flex-row flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-600 mt-3">
+                        <div
+                            class="hidden print:flex flex-row flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-600 mt-3">
                             <span>github.com/robbdimitrov</span>
                             <span class="text-zinc-300">&bull;</span>
                             <span>linkedin.com/in/robbdimitrov</span>
@@ -82,24 +112,46 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="my-6 space-y-4 text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    <p>Builder, craftsman, and minimalist. Software engineer with 14+ years of experience building distributed systems and full-stack applications.</p>
-                    <p class="font-mono text-sm text-zinc-600 dark:text-zinc-400">Passionate about quality products, robust engineering, and clean design patterns.</p>
+                    <p>Builder, craftsman, and minimalist. Software engineer with 14+ years of experience building
+                        distributed systems and full-stack applications.</p>
+                    <p class="font-mono text-sm text-zinc-600 dark:text-zinc-400">Passionate about quality products,
+                        robust engineering, and clean design patterns.</p>
                 </div>
-                
+
                 <!-- Connect Links -->
                 <div class="flex flex-col sm:flex-row sm:flex-wrap lg:flex-col gap-4 mt-auto print:hidden">
-                    <a href="https://github.com/robbdimitrov" target="_blank" rel="noopener noreferrer" class="group social-link">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    <a href="https://github.com/robbdimitrov" target="_blank" rel="noopener noreferrer"
+                        class="group social-link">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                            </path>
+                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                        </svg>
                         <span class="social-text">GitHub</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/robbdimitrov/" target="_blank" rel="noopener noreferrer" class="group social-link">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <a href="https://www.linkedin.com/in/robbdimitrov/" target="_blank" rel="noopener noreferrer"
+                        class="group social-link">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect width="4" height="12" x="2" y="9"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
                         <span class="social-text">LinkedIn</span>
                     </a>
                     <a href="#" id="web-email" class="group social-link">
-                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="social-icon w-5 h-5">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
                         <span class="social-text">Email</span>
                     </a>
                 </div>
@@ -111,37 +163,51 @@
 
         <!-- Right Column: Experience, Projects -->
         <div class="lg:col-span-8 flex flex-col gap-6">
-            
+
             <!-- Experience -->
             <div class="spotlight-card p-8 lg:p-10">
-                <h3 class="font-mono text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mb-8 flex items-center gap-2">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500"><rect width="20" height="14" x="2" y="7" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Experience
+                <h3
+                    class="font-mono text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mb-8 flex items-center gap-2">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500">
+                        <rect width="20" height="14" x="2" y="7" rx="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg> Experience
                 </h3>
-                
+
                 <div class="flex flex-col gap-8">
                     <!-- Broadcom -->
                     <div class="group timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
-                            <a href="https://www.broadcom.com/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                Broadcom <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://www.broadcom.com/" target="_blank" rel="noopener noreferrer"
+                                class="timeline-title">
+                                Broadcom <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Dec 2023 - Present</span>
                         </div>
                         <div class="timeline-role">Software Engineer</div>
-                        <p class="timeline-desc">Developed enterprise on-premises platform architecture, focusing on database infrastructure migrations and technical design.</p>
+                        <p class="timeline-desc">Developed enterprise on-premises platform architecture, focusing on
+                            database infrastructure migrations and technical design.</p>
                         <ul class="bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Platform Engineering:</strong> Developed core components for an on-premises platform installer to unify diverse infrastructure and tooling.</span>
+                                <span><strong class="bullet-label">Platform Engineering:</strong> Developed core
+                                    components for an on-premises platform installer to unify diverse infrastructure and
+                                    tooling.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Infrastructure Migration:</strong> Executed the transition from standalone PostgreSQL to PostgreSQL Operator with zero downtime for existing services.</span>
+                                <span><strong class="bullet-label">Infrastructure Migration:</strong> Executed the
+                                    transition from standalone PostgreSQL to PostgreSQL Operator with zero downtime for
+                                    existing services.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Technical Design:</strong> Built proof-of-concept (POC) implementations and co-authored technical design documents.</span>
+                                <span><strong class="bullet-label">Technical Design:</strong> Built proof-of-concept
+                                    (POC) implementations and co-authored technical design documents.</span>
                             </li>
                         </ul>
                         <div class="timeline-skills">
@@ -156,25 +222,32 @@
                     <div class="group timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
-                            <a href="https://www.vmware.com/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                VMware <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://www.vmware.com/" target="_blank" rel="noopener noreferrer"
+                                class="timeline-title">
+                                VMware <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Jul 2022 - Nov 2023</span>
                         </div>
                         <div class="timeline-role">Software Engineer</div>
-                        <p class="timeline-desc">Engineered data services and APIs for the core storage layer within a large-scale cloud environment.</p>
+                        <p class="timeline-desc">Engineered data services and APIs for the core storage layer within a
+                            large-scale cloud environment.</p>
                         <ul class="bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Core Data Services:</strong> Developed scalable data services for the storage layer using Go and Java.</span>
+                                <span><strong class="bullet-label">Core Data Services:</strong> Developed scalable data
+                                    services for the storage layer using Go and Java.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">API Design:</strong> Designed and implemented RESTful and GraphQL APIs to support efficient data operations.</span>
+                                <span><strong class="bullet-label">API Design:</strong> Designed and implemented RESTful
+                                    and GraphQL APIs to support efficient data operations.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Cloud Infrastructure:</strong> Maintained resilient backend systems using AWS services, PostgreSQL, Redis, and Elasticsearch.</span>
+                                <span><strong class="bullet-label">Cloud Infrastructure:</strong> Maintained resilient
+                                    backend systems using AWS services, PostgreSQL, Redis, and Elasticsearch.</span>
                             </li>
                         </ul>
                         <div class="timeline-skills">
@@ -190,25 +263,32 @@
                     <div class="group timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
-                            <a href="https://www.sumup.com/en-us/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                SumUp <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://www.sumup.com/en-us/" target="_blank" rel="noopener noreferrer"
+                                class="timeline-title">
+                                SumUp <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Oct 2019 - Jun 2022</span>
                         </div>
                         <div class="timeline-role">Software Developer</div>
-                        <p class="timeline-desc">Developed security and integration features for the SumUp Card, focusing on authentication flows and Open Banking.</p>
+                        <p class="timeline-desc">Developed security and integration features for the SumUp Card,
+                            focusing on authentication flows and Open Banking.</p>
                         <ul class="bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">SumUp Card:</strong> Delivered core features and services within the Banking engineering team.</span>
+                                <span><strong class="bullet-label">SumUp Card:</strong> Delivered core features and
+                                    services within the Banking engineering team.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Security Architecture:</strong> Built and deployed a multi-factor authentication (MFA) service and authorization flow.</span>
+                                <span><strong class="bullet-label">Security Architecture:</strong> Built and deployed a
+                                    multi-factor authentication (MFA) service and authorization flow.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Open Banking:</strong> Implemented and integrated Open Banking APIs to extend financial capabilities.</span>
+                                <span><strong class="bullet-label">Open Banking:</strong> Implemented and integrated
+                                    Open Banking APIs to extend financial capabilities.</span>
                             </li>
                         </ul>
                         <div class="timeline-skills">
@@ -222,25 +302,33 @@
                     <div class="group timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
-                            <a href="https://www.devolo.global/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                devolo AG <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://www.devolo.global/" target="_blank" rel="noopener noreferrer"
+                                class="timeline-title">
+                                devolo AG <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Feb 2018 - Oct 2019</span>
                         </div>
                         <div class="timeline-role">Software Developer</div>
-                        <p class="timeline-desc">Developed iOS applications for smart home networking, focusing on device state management and Bluetooth integration.</p>
+                        <p class="timeline-desc">Developed iOS applications for smart home networking, focusing on
+                            device state management and Bluetooth integration.</p>
                         <ul class="bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">iOS Application:</strong> Developed an app enabling Bluetooth-based discovery and control of network devices via RESTful endpoints.</span>
+                                <span><strong class="bullet-label">iOS Application:</strong> Developed an app enabling
+                                    Bluetooth-based discovery and control of network devices via RESTful
+                                    endpoints.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Resilient Connectivity:</strong> Built a caching system and offline mode to handle unreliable network states.</span>
+                                <span><strong class="bullet-label">Resilient Connectivity:</strong> Built a caching
+                                    system and offline mode to handle unreliable network states.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">State Management:</strong> Designed diffing algorithms to accurately track available and unavailable network hardware.</span>
+                                <span><strong class="bullet-label">State Management:</strong> Designed diffing
+                                    algorithms to accurately track available and unavailable network hardware.</span>
                             </li>
                         </ul>
                         <div class="timeline-skills">
@@ -254,21 +342,27 @@
                     <div class="group timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
-                            <a href="https://codemotionapps.com/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                Codemotion Ltd. <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://codemotionapps.com/" target="_blank" rel="noopener noreferrer"
+                                class="timeline-title">
+                                Codemotion Ltd. <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Feb 2014 - Sep 2016</span>
                         </div>
                         <div class="timeline-role">Co-Founder & Developer</div>
-                        <p class="timeline-desc">Co-founded a product studio and managed the technical development of interactive iOS applications.</p>
+                        <p class="timeline-desc">Co-founded a product studio and managed the technical development of
+                            interactive iOS applications.</p>
                         <ul class="bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Product Development:</strong> Built and shipped multiple applications, including a dedicated iPad vector design tool.</span>
+                                <span><strong class="bullet-label">Product Development:</strong> Built and shipped
+                                    multiple applications, including a dedicated iPad vector design tool.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Graphics Engineering:</strong> Designed a dynamic vector brush engine that responds to Apple Pencil pressure and tilt data.</span>
+                                <span><strong class="bullet-label">Graphics Engineering:</strong> Designed a dynamic
+                                    vector brush engine that responds to Apple Pencil pressure and tilt data.</span>
                             </li>
                         </ul>
                         <div class="timeline-skills">
@@ -281,21 +375,27 @@
                     <div class="group timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-title-row">
-                            <a href="https://www.linkedin.com/company/despark/" target="_blank" rel="noopener noreferrer" class="timeline-title">
-                                Despark <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://www.linkedin.com/company/despark/" target="_blank"
+                                rel="noopener noreferrer" class="timeline-title">
+                                Despark <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Feb 2012 - Feb 2013</span>
                         </div>
                         <div class="timeline-role">Junior iOS Developer</div>
-                        <p class="timeline-desc">Built and maintained a portfolio of iOS games and consumer-facing applications.</p>
+                        <p class="timeline-desc">Built and maintained a portfolio of iOS games and consumer-facing
+                            applications.</p>
                         <ul class="bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Mobile Development:</strong> Developed information and storefront iOS applications for various clients.</span>
+                                <span><strong class="bullet-label">Mobile Development:</strong> Developed information
+                                    and storefront iOS applications for various clients.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Game Programming:</strong> Built and shipped multiple iOS games using the Cocos2D engine.</span>
+                                <span><strong class="bullet-label">Game Programming:</strong> Built and shipped multiple
+                                    iOS games using the Cocos2D engine.</span>
                             </li>
                         </ul>
                         <div class="timeline-skills">
@@ -308,12 +408,18 @@
 
             <!-- Projects -->
             <div class="spotlight-card p-8 lg:p-10">
-                <h3 class="font-mono text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mb-8 flex items-center gap-2">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path></svg> Active Projects
+                <h3
+                    class="font-mono text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest mb-8 flex items-center gap-2">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500">
+                        <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+                        <rect width="6" height="6" x="9" y="9" rx="1"></rect>
+                        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
+                    </svg> Active Projects
                 </h3>
-                
+
                 <div class="flex flex-col gap-10">
-                    
+
                     <!-- Stealth Mode -->
                     <div class="group project-item">
                         <div class="project-title-row">
@@ -322,104 +428,115 @@
                             </h4>
                             <span class="timeline-date">APR 2025 - Present</span>
                         </div>
-                        <p class="timeline-desc">Architecting a cloud-agnostic B2B2C platform. The system handles entity discovery, real-time coordination, and multi-party deal flows.</p>
+                        <p class="timeline-desc">Architecting a cloud-agnostic B2B2C platform. The system handles entity
+                            discovery, real-time coordination, and multi-party deal flows.</p>
                         <ul class="project-bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Backend:</strong> Used pgx and explicit SQL with PostgreSQL to retain control over queries, transactions, and data integrity.</span>
+                                <span><strong class="bullet-label">Backend:</strong> Used pgx and explicit SQL with
+                                    PostgreSQL to retain control over queries, transactions, and data integrity.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Search & Cache:</strong> Integrated Typesense for catalogue search and Valkey for caching, distributed locking, and pub/sub.</span>
+                                <span><strong class="bullet-label">Search & Cache:</strong> Integrated Meilisearch for
+                                    catalogue search and Valkey for caching, distributed locking, and pub/sub.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">AI Cataloguing:</strong> Implemented LLM-powered listing creation for both single items and bulk catalogue creation.</span>
+                                <span><strong class="bullet-label">AI Cataloguing:</strong> Implemented LLM-powered
+                                    listing creation for both single items and bulk catalogue creation.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Frontend:</strong> Built an offline-capable SPA using SvelteKit, featuring web push notifications and strict Content Security Policies.</span>
-                            </li>
-                            <li class="bullet-item">
-                                <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Infrastructure:</strong> Deployed a containerized architecture on Kubernetes, utilizing S3-compatible object storage and pgBackRest.</span>
+                                <span><strong class="bullet-label">Infrastructure:</strong> Orchestrated deployments using
+                                    Kubernetes, preparing for a highly available, cloud-agnostic architecture.</span>
                             </li>
                         </ul>
                         <div class="project-skills">
                             <span class="skill-badge">SvelteKit</span>
                             <span class="skill-badge">Go</span>
-                            <span class="skill-badge">Typesense</span>
-                            <span class="skill-badge">PostgreSQL</span>
-                            <span class="skill-badge">Valkey</span>
                             <span class="skill-badge">LLM</span>
                             <span class="skill-badge">Kubernetes</span>
                         </div>
                     </div>
 
                     <div class="h-px bg-zinc-200 dark:bg-zinc-800 w-full opacity-50"></div>
-                    
-                    <!-- Thoughts -->
+
+                    <!-- Cogito -->
                     <div class="group project-item">
                         <div class="project-title-row">
-                            <a href="https://github.com/robbdimitrov/thoughts" target="_blank" rel="noopener noreferrer" class="project-title">
-                                Thoughts <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://github.com/robbdimitrov/cogito" target="_blank" rel="noopener noreferrer"
+                                class="project-title">
+                                Cogito <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Dec 2018 - Present</span>
                         </div>
-                        <p class="timeline-desc">Microservices-based social media application enabling users to create and interact with posts via a distributed architecture.</p>
+                        <p class="timeline-desc">Full-stack post-sharing platform built with a production-grade
+                            microservices architecture.</p>
                         <ul class="project-bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Backend:</strong> Built a modular backend using Go and Rust, utilizing gRPC for internal communication.</span>
+                                <span><strong class="bullet-label">Backend:</strong> Built a modular microservices
+                                    backend using Go and Rust, utilizing gRPC for internal communication.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Infrastructure:</strong> Containerized stateless services for Kubernetes deployment, including automated rollout scripts.</span>
+                                <span><strong class="bullet-label">Infrastructure:</strong> Containerized stateless
+                                    services for Kubernetes deployment with event-driven CDC pipelines using
+                                    Redpanda.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Frontend:</strong> Built the web interface using Next.js (App Router), React, Tailwind CSS, and DaisyUI.</span>
+                                <span><strong class="bullet-label">Frontend:</strong> Built the web interface using
+                                    SvelteKit, TypeScript, Tailwind CSS, and DaisyUI.</span>
                             </li>
                         </ul>
                         <div class="project-skills">
-                            <span class="skill-badge">React/Next.js</span>
+                            <span class="skill-badge">SvelteKit</span>
                             <span class="skill-badge">Go</span>
                             <span class="skill-badge">Rust</span>
                             <span class="skill-badge">gRPC</span>
-                            <span class="skill-badge">PostgreSQL</span>
                         </div>
                     </div>
 
                     <div class="h-px bg-zinc-200 dark:bg-zinc-800 w-full opacity-50"></div>
 
-                    <!-- Pixelgram -->
+                    <!-- Phasma -->
                     <div class="group project-item">
                         <div class="project-title-row">
-                            <a href="https://github.com/robbdimitrov/pixelgram" target="_blank" rel="noopener noreferrer" class="project-title">
-                                PixelGram <svg aria-hidden="true" class="link-icon"><use href="#icon-external"></use></svg>
+                            <a href="https://github.com/robbdimitrov/phasma" target="_blank" rel="noopener noreferrer"
+                                class="project-title">
+                                Phasma <svg aria-hidden="true" class="link-icon">
+                                    <use href="#icon-external"></use>
+                                </svg>
                             </a>
                             <span class="timeline-date">Nov 2017 - Present</span>
                         </div>
-                        <p class="timeline-desc">Full-stack image-sharing application enabling users to browse and interact with images.</p>
+                        <p class="timeline-desc">Full-stack image-sharing platform built with a production-grade
+                            architecture combining a robust Go API with a modern SvelteKit frontend.</p>
                         <ul class="project-bullet-list">
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Backend:</strong> Developed a RESTful API backend using Go and the pgx driver.</span>
+                                <span><strong class="bullet-label">Backend:</strong> Developed a robust RESTful API
+                                    backend using Go and the pgx driver.</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Frontend:</strong> Built a Single Page Application (SPA) using Angular and TypeScript.</span>
+                                <span><strong class="bullet-label">Frontend:</strong> Built the web interface using
+                                    SvelteKit and TypeScript with Server-Side Rendering (SSR).</span>
                             </li>
                             <li class="bullet-item">
                                 <span class="bullet-dot">&bull;</span>
-                                <span><strong class="bullet-label">Infrastructure:</strong> Containerized the application stack with Docker and automated deployments to Kubernetes.</span>
+                                <span><strong class="bullet-label">Infrastructure:</strong> Containerized event-driven
+                                    architecture with Redpanda CDC pipelines, deployed to Kubernetes.</span>
                             </li>
                         </ul>
                         <div class="project-skills">
-                            <span class="skill-badge">Angular</span>
+                            <span class="skill-badge">SvelteKit</span>
                             <span class="skill-badge">Go</span>
                             <span class="skill-badge">Kubernetes</span>
-                            <span class="skill-badge">PostgreSQL</span>
                         </div>
                     </div>
 
@@ -431,4 +548,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
