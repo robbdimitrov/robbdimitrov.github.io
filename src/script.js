@@ -236,7 +236,7 @@ if (sidebar) {
 
     // Run synchronously to prevent 1-frame overshoot/jitter during native scrolling
     window.addEventListener('scroll', () => updatePosition(false), { passive: true });
-    window.addEventListener('resize', () => updatePosition(true), { passive: true });
+    window.addEventListener('resize', () => requestAnimationFrame(() => updatePosition(true)), { passive: true });
     
     updatePosition(true);
 }
