@@ -443,8 +443,10 @@ body {
         display: none !important;
     }
 
-    .lg\:sticky {
+    /* Override JS-applied inline sticky styles */
+    #profile-column {
         position: static !important;
+        top: auto !important;
     }
 
     a {
