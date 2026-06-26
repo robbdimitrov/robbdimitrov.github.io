@@ -206,7 +206,9 @@ if (sidebar) {
         }
 
         if (isInit) {
-            const maxTop = mainOffsetHeight - sidebarHeight;
+            // Prevent overflowing the bottom of the grid on refresh
+            // 96px accounts for the lg:p-12 (48px top + 48px bottom padding)
+            const maxTop = mainOffsetHeight - sidebarHeight - 96;
             let initialTop = scrollY;
             if (initialTop > maxTop) initialTop = maxTop;
             if (initialTop < 0) initialTop = 0;
