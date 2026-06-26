@@ -141,7 +141,11 @@ if (window.matchMedia('(hover: none)').matches) {
 
 // --- Anti-Scraping Email Obfuscation ---
 setTimeout(() => {
-    const email = 'robert_dimitrov@me.com';
+    // Construct dynamically to evade static regex scrapers
+    const user = 'robert_dimitrov';
+    const domain = 'me.com';
+    const email = user + '@' + domain;
+    
     const webEmail = document.getElementById('web-email');
     const printEmail = document.getElementById('print-email');
     
@@ -160,21 +164,10 @@ if (sidebar) {
     const offsetTop = 48; // 3rem (top-12)
     const offsetBottom = 48; // 3rem (pb-12)
 
-    let viewportHeight = window.innerHeight;
-    let sidebarHeight = sidebar.getBoundingClientRect().height;
-    let mainOffsetHeight = main.getBoundingClientRect().height;
-
-    const updateDimensions = () => {
-        viewportHeight = window.innerHeight;
-        sidebarHeight = sidebar.getBoundingClientRect().height;
-        mainOffsetHeight = main.getBoundingClientRect().height;
-    };
-
     const unstick = (rect) => {
         isSticking = '';
         sidebar.style.position = 'relative';
         sidebar.style.top = `${rect.top - main.getBoundingClientRect().top - offsetTop}px`;
-        sidebar.style.bottom = '';
     };
 
     const updatePosition = (isInit = false) => {
@@ -182,7 +175,6 @@ if (sidebar) {
             if (sidebar.style.position) {
                 sidebar.style.position = '';
                 sidebar.style.top = '';
-                sidebar.style.bottom = '';
             }
             return;
         }
@@ -191,20 +183,22 @@ if (sidebar) {
         const scrollDelta = scrollY - lastScrollY;
         lastScrollY = scrollY;
 
+        const viewportHeight = window.innerHeight;
+        const sidebarHeight = sidebar.getBoundingClientRect().height;
+
         // If sidebar fits within viewport, act as a standard top-sticky element
         if (sidebarHeight + offsetTop + offsetBottom <= viewportHeight) {
             if (isSticking !== 'top') {
                 isSticking = 'top';
                 sidebar.style.position = 'sticky';
                 sidebar.style.top = `${offsetTop}px`;
-                sidebar.style.bottom = '';
             }
             return;
         }
 
         // Initialize relative scroll state on load/refresh
         if (isInit) {
-            const maxTop = mainOffsetHeight - sidebarHeight - (offsetTop * 2);
+            const maxTop = main.getBoundingClientRect().height - sidebarHeight - (offsetTop * 2);
             let initialTop = scrollY;
             
             if (initialTop > maxTop) initialTop = maxTop;
@@ -213,11 +207,9 @@ if (sidebar) {
             isSticking = '';
             sidebar.style.position = 'relative';
             sidebar.style.top = `${initialTop}px`;
-            sidebar.style.bottom = '';
             return;
         }
 
-        // Defer expensive DOM reads until necessary
         if (scrollDelta === 0) return;
         const rect = sidebar.getBoundingClientRect();
 
@@ -229,7 +221,6 @@ if (sidebar) {
                 isSticking = 'bottom';
                 sidebar.style.position = 'sticky';
                 sidebar.style.top = `${viewportHeight - sidebarHeight - offsetBottom}px`;
-                sidebar.style.bottom = '';
             }
         } else {
             // Scrolling UP
@@ -239,22 +230,13 @@ if (sidebar) {
                 isSticking = 'top';
                 sidebar.style.position = 'sticky';
                 sidebar.style.top = `${offsetTop}px`;
-                sidebar.style.bottom = '';
             }
         }
     };
 
     // Run synchronously to prevent 1-frame overshoot/jitter during native scrolling
     window.addEventListener('scroll', () => updatePosition(false), { passive: true });
+    window.addEventListener('resize', () => updatePosition(true), { passive: true });
     
-    // Use ResizeObserver for bulletproof dimension tracking
-    const ro = new ResizeObserver(() => {
-        updateDimensions();
-        updatePosition(true);
-    });
-    ro.observe(main);
-    ro.observe(sidebar);
-    
-    updateDimensions();
     updatePosition(true);
 }
