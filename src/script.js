@@ -167,8 +167,20 @@ const sidebar = document.getElementById('profile-column');
 if (sidebar) {
     let isSticking = ''; // 'top', 'bottom', or ''
     let lastScrollY = window.scrollY;
+    let ticking = false;
 
-    const onScroll = (isInit = false) => {
+    let viewportHeight = window.innerHeight;
+    let sidebarHeight = sidebar.offsetHeight;
+    const main = sidebar.parentElement;
+    let mainOffsetHeight = main.offsetHeight;
+
+    const updateDimensions = () => {
+        viewportHeight = window.innerHeight;
+        sidebarHeight = sidebar.offsetHeight;
+        mainOffsetHeight = main.offsetHeight;
+    };
+
+    const updatePosition = (isInit = false) => {
         if (window.innerWidth < 1024) {
             sidebar.style.position = '';
             sidebar.style.top = '';
@@ -181,10 +193,7 @@ if (sidebar) {
         lastScrollY = scrollY;
 
         const rect = sidebar.getBoundingClientRect();
-        const main = sidebar.parentElement;
         const mainRect = main.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const sidebarHeight = sidebar.offsetHeight;
         
         const offsetTop = 48; // 3rem (top-12)
         const offsetBottom = 48; // 3rem (pb-12)
@@ -198,7 +207,7 @@ if (sidebar) {
         }
 
         if (isInit) {
-            const maxTop = main.offsetHeight - sidebarHeight;
+            const maxTop = mainOffsetHeight - sidebarHeight;
             let initialTop = scrollY;
             if (initialTop > maxTop) initialTop = maxTop;
             if (initialTop < 0) initialTop = 0;
@@ -242,10 +251,25 @@ if (sidebar) {
         }
     };
 
-    window.addEventListener('scroll', () => onScroll(false), { passive: true });
-    window.addEventListener('resize', () => onScroll(true), { passive: true });
+    const onScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updatePosition(false);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+        updateDimensions();
+        updatePosition(true);
+    }, { passive: true });
+    
     // Trigger once on load
-    onScroll(true);
+    updateDimensions();
+    updatePosition(true);
 }
 
 
