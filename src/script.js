@@ -173,6 +173,7 @@ if (sidebar) {
     const updatePosition = (isInit = false) => {
         if (window.innerWidth < 1024) {
             if (sidebar.style.position) {
+                isSticking = '';
                 sidebar.style.position = '';
                 sidebar.style.top = '';
             }
