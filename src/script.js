@@ -161,3 +161,91 @@ setTimeout(() => {
     const printEmail = document.getElementById('print-email');
     if (printEmail) printEmail.textContent = email;
 }, 100);
+
+// Storefront Dual-Direction Sticky Sidebar
+const sidebar = document.getElementById('profile-column');
+if (sidebar) {
+    let isSticking = ''; // 'top', 'bottom', or ''
+    let lastScrollY = window.scrollY;
+
+    const onScroll = (isInit = false) => {
+        if (window.innerWidth < 1024) {
+            sidebar.style.position = '';
+            sidebar.style.top = '';
+            sidebar.style.bottom = '';
+            return;
+        }
+
+        const scrollY = window.scrollY;
+        const scrollDelta = scrollY - lastScrollY;
+        lastScrollY = scrollY;
+
+        const rect = sidebar.getBoundingClientRect();
+        const main = sidebar.parentElement;
+        const mainRect = main.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const sidebarHeight = sidebar.offsetHeight;
+        
+        const offsetTop = 48; // 3rem (top-12)
+        const offsetBottom = 48; // 3rem (pb-12)
+
+        // If sidebar is shorter than viewport, it behaves like a normal top-sticky element
+        if (sidebarHeight + offsetTop + offsetBottom <= viewportHeight) {
+            sidebar.style.position = 'sticky';
+            sidebar.style.top = `${offsetTop}px`;
+            sidebar.style.bottom = '';
+            return;
+        }
+
+        if (isInit) {
+            const maxTop = main.offsetHeight - sidebarHeight;
+            let initialTop = scrollY;
+            if (initialTop > maxTop) initialTop = maxTop;
+            if (initialTop < 0) initialTop = 0;
+            sidebar.style.position = 'relative';
+            sidebar.style.top = `${initialTop}px`;
+            sidebar.style.bottom = '';
+            return;
+        }
+
+        // Taller than viewport logic (Storefront gallery behavior)
+        if (scrollDelta > 0) {
+            // Scrolling DOWN
+            if (isSticking === 'top') {
+                isSticking = '';
+                sidebar.style.position = 'relative';
+                sidebar.style.top = `${rect.top - mainRect.top - 48}px`; 
+                sidebar.style.bottom = '';
+            }
+
+            if (isSticking !== 'bottom' && rect.bottom <= viewportHeight - offsetBottom) {
+                isSticking = 'bottom';
+                sidebar.style.position = 'sticky';
+                sidebar.style.top = `${viewportHeight - sidebarHeight - offsetBottom}px`;
+                sidebar.style.bottom = '';
+            }
+        } else if (scrollDelta < 0) {
+            // Scrolling UP
+            if (isSticking === 'bottom') {
+                isSticking = '';
+                sidebar.style.position = 'relative';
+                sidebar.style.top = `${rect.top - mainRect.top - 48}px`;
+                sidebar.style.bottom = '';
+            }
+
+            if (isSticking !== 'top' && rect.top >= offsetTop) {
+                isSticking = 'top';
+                sidebar.style.position = 'sticky';
+                sidebar.style.top = `${offsetTop}px`;
+                sidebar.style.bottom = '';
+            }
+        }
+    };
+
+    window.addEventListener('scroll', () => onScroll(false), { passive: true });
+    window.addEventListener('resize', () => onScroll(true), { passive: true });
+    // Trigger once on load
+    onScroll(true);
+}
+
+
