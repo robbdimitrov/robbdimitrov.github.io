@@ -167,17 +167,16 @@ const sidebar = document.getElementById('profile-column');
 if (sidebar) {
     let isSticking = ''; // 'top', 'bottom', or ''
     let lastScrollY = window.scrollY;
-    let ticking = false;
 
     let viewportHeight = window.innerHeight;
-    let sidebarHeight = sidebar.offsetHeight;
+    let sidebarHeight = sidebar.getBoundingClientRect().height;
     const main = sidebar.parentElement;
-    let mainOffsetHeight = main.offsetHeight;
+    let mainOffsetHeight = main.getBoundingClientRect().height;
 
     const updateDimensions = () => {
         viewportHeight = window.innerHeight;
-        sidebarHeight = sidebar.offsetHeight;
-        mainOffsetHeight = main.offsetHeight;
+        sidebarHeight = sidebar.getBoundingClientRect().height;
+        mainOffsetHeight = main.getBoundingClientRect().height;
     };
 
     const updatePosition = (isInit = false) => {
@@ -251,19 +250,10 @@ if (sidebar) {
         }
     };
 
-    const onScroll = () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                updatePosition(false);
-                ticking = false;
-            });
-            ticking = true;
-        }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Run synchronously to prevent 1-frame overshoot/jitter during native scrolling
+    window.addEventListener('scroll', () => updatePosition(false), { passive: true });
     
-    // Use ResizeObserver for bulletproof dimension tracking (handles late font loads, etc.)
+    // Use ResizeObserver for bulletproof dimension tracking
     const ro = new ResizeObserver(() => {
         updateDimensions();
         updatePosition(true);
