@@ -403,6 +403,7 @@ body {
         padding: 0 !important;
         box-shadow: none !important;
         animation: none !important;
+        overflow: visible !important;
     }
 
     .spotlight-card::after {
@@ -411,12 +412,18 @@ body {
 
     /* Single column layout for print */
     main {
+        display: block !important;
         max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
     }
 
     main>div {
+        display: block !important;
+    }
+
+    /* Convert flex columns to block to allow proper page breaks */
+    .spotlight-card .flex-col:not(.print\:hidden) {
         display: block !important;
     }
 
